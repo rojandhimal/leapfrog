@@ -29,8 +29,14 @@
 }
 
 .card-wrapper p {
-    display: none;
+    padding: 10%;
+    color: white;
     visibility: hidden;
+    
+}
+
+.card-wrapper a{
+    text-decoration: none;
 }
 
 
@@ -44,6 +50,14 @@
     margin: 0 10px;
     display: inline-block;
 }
+.social-wrapper {
+    margin-left: 30px;
+    visibility: hidden;
+}
+
+.social{
+    margin: 3px;
+}
 
 .card:hover{
     background: url("../images/cardblue.png");
@@ -54,6 +68,9 @@
 }
 
 .card:hover p{
+    visibility: visible;
+}
+.card:hover .social-wrapper{
     visibility: visible;
 }
 
