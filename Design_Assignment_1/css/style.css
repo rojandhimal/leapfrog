@@ -1,0 +1,11 @@
+
+.graph-images {
+  margin-top: 30px;
+}
+
+.graph-images ul li {
+  list-style: none;
+  float: left;
+  margin-right: 10px;
+}
+
