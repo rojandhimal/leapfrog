@@ -1,116 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Design Assignment 1</title>
+    <title>Tollens</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<div class="wrapper">
-    <div class="whole-wrapper">
-        <div class="header-wrapper">
-            <div class="header-top">
-                <div class="content-wrapper navbar-wrapper">
-                    <div class="header">
-                    <div class="col-left">
-                        <div class="logo">
-                            <a href="index.html"><img src="images/logo.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-right">
-                        <div class="navbar">
-                                <a href="#home">Home</a>
-                                <a class="active" href="#about">About</a>
-                                <a href="#service">Service</a>
-                                <a href="#blog">Blog</a>
-                                <a href="#feature">Feature</a>
-                                <a href="#contact">Contact</a>
-                                <img src="images/search.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class=" header-buttom">
-                <div class="content-wrapper">
-                    <div class="header-bottom-content">
-                        <div class="col-left">About us</div>
-                        <div class="col-right">Home / About us</div>
-                    </div>
-                    <div><img class="triangle" src="images/triangle.png" alt=""></div>
-                </div>
-            </div>
-             
-        </div>
-        
-    </div>
-    <div class="main-wrapper">
-    <div class="content-wrapper">
-            <div class="content">
-                <h2>Donec faucibus ultrices congue</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                    Nisi explicabo reiciendis soluta eligendi debitis quo nam deserunt
-                     quae sunt nostrum voluptas ea velit nihil aspernatur, facilis sit eos,
-                       quae sunt nostrum voluptas ea velit nihil aspernatur, facilis sit eosfacilis sit eos,
-                        ratione saepe!</p>
-                <div class="box-3">
-                        <div class="box-3-wrapper">
-                                <div class="col-left">
-                                    <div class="choose-us">
-                                        <div class="choose-us-wrapper">
-                                            <div>Why us?</div>
-                                            <ul>
-                                                <li>hello</li>
-                                                <li>hello</li>
-                                                <li>hello</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-right">
-                                    <div class="col-3-r">
-                                        <div class="col-left">
-                                            <div class="graph">
-                                            <div >
-                                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                                 Quia voluptates molestiae quisquam nulla sint necessitatibus
-                                                  praesentium maxime! Qui iste voluptatibus ducimus dolore nulla
-                                                   fugiat modi rerum illum? Perspiciatis, doloremque magni?
-                                            </div>
-                                            <div class="graph-images">
-                                                <ul>
-                                                    <li><img src="images/round.png" alt=""></li>                        </li>
-                                                    <li><img src="images/round.png" alt=""></li>
-                                                    <li><img src="images/round.png" alt=""></li>
-                                                    <li><img src="images/round.png" alt=""></li>
-                                                </ul>
-                                            
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="col-right">
-                                            <div class="client-wrapper">
-                                                <div class="client">What Client's Say?</div>
-                                                <p class="client-text">Lorem ipsum dolor sit, amet consectetur 
-                                                    adipisicing elit. Deleniti, autem?</p>
-                                            </div>
-                                        </div>
-                                    
-                                    </div>
-                                </div>
-                        </div>    
-                </div>
-          </div>
-    </div>
-</div>
-  
-</div>
-   
 
-    
+<body>
+
+    <div class="main__wrapper">
+
+        <header>
+
+            <nav class="main-nav clearfix">
+                <div class="site__logo floats-left">
+                    <img src="images/logo.png" alt="Logo">
+                </div>
+                <div class="navbar__menu__wrapper floats-right">
+                    <ul class="navbar__menu">
+                        <li><a href="">Home</a></li>
+                        <li>About</li>
+                        <li>Services</li>
+                        <li class="active">Portfolio</li>
+                        <li>Blog</li>
+                        <li>Contact Us</li>
+                        <li class="search-icon__li"><img src="images/search-icon.png" alt="" srcset=""></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="navbar__bottom__ruler"></div>
+
+            <div class="breadcrumb__wrapper clearfix text-is-gray">
+                <div class="breadcrumb__current-page floats-left">
+                    about us
+                </div>
+                <div class="breadcrumb__breadcrumb floats-right">
+                    <ul class="breadcrumbs__list">
+                        <li>Home</li>
+                        <li>About Us</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="down-arrow-image">
+
+            </div>
+        </header>
+
+        <section class="section--intro text-is-gray">
+            <div class="section__title--intro section__title is-left-aligned">
+                Donec faucibrus ulticries congue
+            </div>
+            <p class="section__description--intro section__description is-left-aligned">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, corrupti dignissimos reiciendis ducimus eligendi, perspiciatis maiores modi atque hic quidem sed quis a minima, molestias odit libero facilis aut mollitia.
+            </p>
+
+            <div class="intro-content__wrapper clearfix">
+                <div class="choose-us__wrapper floats-left">
+                    <div class="choose-us__title">
+                        Why Choose Us?
+                    </div>
+                    <div class="choose-us__content">
+                        <ul class="choose-us__list">
+                            <li>Quisque at massa ipsum</li>
+                            <li>Maencenas a lorem augue</li>
+                            <li>Cras vitae felis at lacus </li>
+                            <li>Nulla ac massa at dolar</li>
+                            <li>Sunt Corrupti</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="stat-client__wrapper floats-left">
+                    <div class="stats floats-left">
+                        <p class="stats__description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum iusto maxime nulla porro cumque minus tempora perferendis quos aut distinctio ut soluta nesciunt <a href="#">vitae
+                                veritatis</a> , ducimus consequatur ea repellat eligendi.
+                        </p>
+
+                        <div class="stats__counters">
+                            <ul class="stats-list">
+                                <li class="stat">
+                                    <div>
+                                        <div class="count">
+                                            100
+                                        </div>
+                                        <div class="stat__title">
+                                            SUSPENDENCE
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="stat">
+                                    <div>
+                                        <div class="count">
+                                            100
+                                        </div>
+                                        <div class="stat__title">
+                                            MACENAS
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="stat">
+                                    <div>
+                                        <div class="count">
+                                            100
+                                        </div>
+                                        <div class="stat__title">
+                                            ALIQUAM
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="clients-speak floats-right">
+                        <div class="clients-speak__title">
+                            What Clients Say?
+                        </div>
+                        <div class="clients-speak__description">
+                            Consectetur adipisicing elit. Nostrum iusto maxime nulla porro cumque minus tempora perferendis quos aut distinctio ut soluta nesciunt vitae veritatis , ducimus consequatur ea repellat eligendi.
+                        </div>
+                        <div class="clients-speak__name">
+                            John Doe
+                        </div>
+                      
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section--clients">
+            <h1 class="section__title">
+                Best Solution is the Simplest IDEA!
+            </h1>
+            <div class="section__wrapper--clients">
+                <p class="section__description section__description--clients">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repudiandae rem recusandae corrupti, nemo quas debitis consequuntur molestias voluptatibus et provident officiis eligendi eum sapiente? Illo vel illum voluptate ea.
+                </p>
+
+                <div class="clients__div">
+                    <div class="clients__top__wrapper clearfix">
+                        <div class="clients__title floats-left">
+                            Our Happy Clients
+                        </div>
+                        <div class="clients__line floats-left">
+                            <div class="line-start floats-left"></div>
+                            <div class="line-rest floats-left"></div>
+                        </div>
+                    </div>
+                    <ul class="clients__list">
+                        <li>
+                            <div class="client__image__wrapper">
+                                <img src="images/jquery.png" alt="Jquery">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="client__image__wrapper">
+                                <img src="images/jquery.png" alt="Jquery">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="client__image__wrapper">
+                                <img src="images/jquery.png" alt="Jquery">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="client__image__wrapper">
+                                <img src="images/jquery.png" alt="Jquery">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+
+            <div class="ruler__border--footer ruler__border">
+
+            </div>
+
+            <div class="footer__top clearfix ">
+
+                <div class="floats-left has-half-width">
+                    <div class="floats-left footer__column--main">
+                        <div class="footer__logo__div column__title">
+                            <img src="images/logo.png" alt="Logo">
+                        </div>
+                        <div class="footer__description">
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores sit omnis dignissimos illum natus enim incidunt nesciunt facere! Dolore reiciendis blanditiis quasi harum esse optio nihil voluptatibus, amet eius beatae?
+                            </p>
+                        </div>
+                        <div class="footer__contact-info">
+                            <ul class="contact-info__list">
+                                <li>Phone: <span class="contact-info">182 2569 5869</span></li>
+                                <li>e-mail: <span class="contact-info">info@tollens.info</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="floats-right footer__column--company">
+                        <h3 class="column__title">
+                            Company
+                        </h3>
+                        <div class="column-links__div">
+                            <ul class="column-links__list">
+                                <li>About</li>
+                                <li>Testimonials</li>
+                                <li>FAQ</li>
+                                <li>Contact</li>
+                                <li>Terms</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="floats-right has-half-width">
+                    <div class="floats-left footer__column--community">
+                        <h3 class="column__title">
+                            Community
+                        </h3>
+                        <div class="column-links__div">
+                            <ul class="column-links__list">
+                                <li>Blog</li>
+                                <li>Forum</li>
+                                <li>Support</li>
+                                <li>Newsletter</li>
+                                <li>Terms</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="floats-right footer__column--blog">
+                        <h3 class="column__title column__title--blog">
+                            <span class="is-thin is-italics">from the </span><span class="is-bold">Blog</span>
+                        </h3>
+                        <div class="blog__wrapper">
+                            <ul class="blog__list no-list-style">
+                                <li>
+                                    <div class="blog__card clearfix">
+                                        <div class="blog__image floats-left">
+                                            <img src="images/bottom-image.png" alt="Bottom Image">
+                                        </div>
+                                        <div class="blog__content floats-left">
+                                            <div class="blog__title">
+                                                Lorem ipsum dolor sit amet conse adipiscing elit </div>
+                                            <div class="blog__date">
+                                                26 May, 2013
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="blog__card clearfix">
+                                        <div class="blog__image floats-left">
+                                            <img src="images/bottom-image.png" alt="Bottom Image">
+                                        </div>
+                                        <div class="blog__content floats-left">
+                                            <div class="blog__title">
+                                                Lorem ipsum dolor sit amet conse adipiscing elit </div>
+                                            <div class="blog__date ">
+                                                26 May, 2013
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer__bottom clearfix">
+                <div class="copyright floats-left">
+                    2019 Tollens
+                </div>
+                <div class="social__div floats-right clearfix">
+                    <img src="images/icons.png" alt="">
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
+
 </html>
