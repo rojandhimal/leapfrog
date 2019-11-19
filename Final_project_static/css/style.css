@@ -1,0 +1,116 @@
+
+.hot-line{
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Roboto;
+}
+
+/* nav {
+    padding: 15px 0 15px 0;
+    background-color: white
+} */
+
+
+
+.navbar{
+    display: inline-block;
+    float: right;
+    background: white
+}
+
+.navbar li{
+    display: inline-block;
+    
+}
+
+
+
+.header-top-wrapper{
+background: white;
+padding: 15px 0;
+}
+
+.header-top{
+    overflow: auto;
+    
+}
+
+.nav-dash-line{
+    height: 1px;
+    background-image: url("../images/nav-dash.png");
+    background-repeat: repeat-x;
+}
+
+.header-bottom-wrapper{
+    background: rgba(rgb(255, 255, 255,0.8), green, blue, alpha);
+    box-shadow: 1px 3px rgba(191, 191, 191, 0.3)
+}
+
+.header-bottom{
+    clear: both;
+    overflow: auto;
+}
+
+
+.navbar-menu li {
+    text-transform: uppercase;
+    display: inline-block;
+    width: 90px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 13px;
+    border: 2px white solid;
+ 
+    
+}
+
+.navbar-menu li a{
+    text-decoration: none;
+    color: #68707a;
+}
+
+.navbar-menu li:hover{
+   border-top: 2px yellowgreen solid;
+   
+}
+
+.navbar-menu{
+    line-height: 40px;
+    padding: 20px auto;
+    margin-left: 0%;
+  
+}
+
+/* end of header css */
+
+
+/* starting container css */
+
+
+.container{
+    padding-top: 315px;
+}
+
+.container h1{
+    width: 800px;
+  
+    margin: 0 auto;
+    
+    
+}
+
+.inner-content{
+    width: 650px;
+    margin: 0 auto;
+    margin-top: 45px;
+}
+
+.container input{
+   margin: 0 auto;
+}
+
+.btn{
+    width: 80px;
+    margin: 0 auto;
+    
+}
