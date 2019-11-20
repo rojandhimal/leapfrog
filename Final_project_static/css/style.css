@@ -1,4 +1,10 @@
 
+.body{
+    font-family: Roboto;
+}
+
+
+
 .hot-line{
     font-size: 12px;
     font-weight: bold;
@@ -35,17 +41,50 @@
     
 }
 
-.nav-social img{
+.nav-social i{
     margin-right: 20px;
 }
 
 
 
-#fb:hover{
-    border: 1px solid red;
-    background: url("../images/social/facebook-nav.png") no-repeat;
+
+.fa-facebook{
+    color: #b5bdc9;
 }
 
+.fa-facebook:hover{
+    color: #6b7c93;
+}
+
+.fa-twitter{
+    color: #b5bdc9;
+}
+
+.fa-twitter:hover{
+    color: #1DA1F2
+}
+
+.fa-pinterest{
+    color: #b5bdc9;
+}
+.fa-pinterest:hover{
+    color: #CB2027;
+}
+
+.fa-skype{
+    color: #b5bdc9;
+}
+.fa-skype:hover{
+    color: #00AFF0;
+}
+
+.fa-dribbble{
+    color: #b5bdc9;
+}
+
+.fa-dribbble:hover{
+    color: #E74D89;
+}
 
 
 .nav-dash-line{
@@ -57,8 +96,8 @@
 
 
 .header-bottom-wrapper{
-    background: rgba(rgb(255, 255, 255,0.8), green, blue, alpha);
-    box-shadow: 1px 3px rgba(191, 191, 191, 0.3)
+    background: rgba(255, 255, 255,0.8);
+    box-shadow: 1px 3px rgba(191, 191, 191, 0.3);
 }
 
 .header-bottom{
@@ -115,26 +154,27 @@
 }
 
 .container h1{
-    width: 800px;
-  
+    width: 745px;
     margin: 0 auto;
+   font-weight: lighter;
     
     
 }
 
 .inner-content{
-    width: 650px;
+    width: 680px;
     margin: 0 auto;
     margin-top: 45px;
 }
 
 .btn{
-    margin: 25px 0 215px 0;
+    margin: 45px 0 215px 0;
     text-align: center;
     
 }
 
 #explore-btn{
+    color: #87C98A;
     height: 45px;
     width: 140px;
     border-radius: 25px;
@@ -148,6 +188,14 @@
 
 
 /* start of partner */
+
+.our-customer h1{
+    margin-top: 20px;
+}
+
+.our-customer p{
+    margin-top: 10px;
+}
 
 .partner{
     overflow: auto;
@@ -165,9 +213,21 @@
 
 /* Start of our services */
 
+.our-service{
+    margin-bottom: 300px;
+    width: 72%;
+}
+
 .our-service h1{
     margin-bottom: 30px;
 }
+
+.our-service h4{
+    margin-bottom: 10px;
+    text-transform: uppercase;
+
+}
+
 .service-info{
     width: 630px;
     margin-bottom: 115px;
@@ -185,6 +245,9 @@
     float: right;
 }
 
+/* end of our service */
+
+/* start of lets build  */
 
 .lets-build-container{
     width: 750px;
@@ -192,16 +255,39 @@
    padding-bottom: 200px;
 }
 
+.lets-build-container h4{
+    text-transform: uppercase;
+}
+
+
+.lets-build-field h2{
+    margin-bottom: 10px;
+}
+
+
 #lets-build-head{
     margin-bottom: 39px;
+    
 }
 
 .lets-build-info{
-    margin-bottom: 110px;
+    margin-bottom: 100px;
 }
 
-.lets-build{
+#project-count{
+    color: #32d5ba;
+}
 
+#cof-con{
+    color: #6dc4f2;
+}
+
+#happy-cus{
+    color: #ffd13c;
+}
+
+#loc{
+    color: #f44336;
 }
 
 .lets-build-field{
@@ -225,7 +311,7 @@
 .contact-us{
     width: 760px;
     clear: both;
-    padding-left: 95px;
+    padding-left: 195px;
     padding-bottom: 145px;
 
     
@@ -237,17 +323,22 @@
    text-align: center;
 } */
 .contact-us-top h1{
-    margin-bottom: 35px;
+    width: 200px;
+    margin: 0 auto;
+    padding-bottom: 35px;
 }
 
 .contact-us-top p{
-    margin-bottom: 100px;
+    width: 400px;
+    margin: 0 auto;
+    padding-bottom: 100px;
 }
 
 .contact-us-form{
     /* margin-bottom: 145px; */
     padding: 77px 65px 87px 65px;
     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 15px 0 rgba(0, 0, 0, 0.10);
+    background: white;
 }
 
 
@@ -260,7 +351,7 @@
 }
 
 .contact-form-field input, textarea{
-    /* margin: 23px 0 33px 0; */
+    margin: 23px 0 33px 0;
 }
 
 .contact-form-field textarea{
@@ -280,6 +371,7 @@
 
 
 .send-btn input{
+    color: #87C98A;
     width: 140px;
     height: 45px;
     border-radius: 35px;
@@ -288,6 +380,10 @@
     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 15px 0 rgba(0, 0, 0, 0.10);
 
 }
+
+
+   
+
 
 
 /* end of  contact us css  */
@@ -380,5 +476,13 @@
     margin-right: 10px;
 }
 
+.footer-wrapper h3{
+    text-transform: uppercase;
+}
+
 
 /* footer css end */
+h1
+{
+    font-weight: lighter;
+}

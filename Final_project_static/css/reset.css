@@ -1,12 +1,19 @@
 *{
     margin: 0;
     padding: 0%;
-   
+    font-family: 'Roboto', sans-serif;
 }
 html { 
-    background: url("../images/web_bg_group_d.png") no-repeat center; 
+    background: url("../images/background.png") no-repeat center center; 
+    
+    /* width: 100%; */
+    background-size: 100% 100%;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  }
+    
+}
+
+
