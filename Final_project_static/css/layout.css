@@ -24,3 +24,7 @@
 .is-col3-inv{
     width: 75%;
 }
+
+.clearfix{
+    clear: both;
+}

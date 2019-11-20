@@ -35,11 +35,26 @@ padding: 15px 0;
     
 }
 
+.nav-social img{
+    margin-right: 20px;
+}
+
+
+
+#fb:hover{
+    border: 1px solid red;
+    background: url("../images/social/facebook-nav.png") no-repeat;
+}
+
+
+
 .nav-dash-line{
     height: 1px;
     background-image: url("../images/nav-dash.png");
     background-repeat: repeat-x;
 }
+
+
 
 .header-bottom-wrapper{
     background: rgba(rgb(255, 255, 255,0.8), green, blue, alpha);
@@ -111,14 +126,16 @@ padding: 15px 0;
 .btn{
     margin: 25px 0 215px 0;
     text-align: center;
+    
 }
 
 #explore-btn{
     height: 45px;
     width: 140px;
     border-radius: 25px;
-    box-shadow: 2px 2px 1px 1px red;
-    background: red;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 15px 0 rgba(0, 0, 0, 0.10);
+    background: white;
+    border: unset;
 }
 
 
@@ -164,5 +181,199 @@ padding: 15px 0;
 }
 
 
+.lets-build-container{
+    width: 750px;
+   margin-left: 95px;
+   padding-bottom: 200px;
+}
+
+#lets-build-head{
+    margin-bottom: 39px;
+}
+
+.lets-build-info{
+    margin-bottom: 110px;
+}
+
+.lets-build{
+
+}
+
+.lets-build-field{
+    width: 460px;
+}
+
+.lets-build{
+    width: 165px;
+    margin-right: 60px;
+    margin-bottom: 80px;
+}
+
+.lets-build h1{
+    font-size: 45px;
+}
+
+/* End of lets built */
+
+/* Start of contact us block css */
+
+.contact-us{
+    width: 760px;
+    clear: both;
+    padding-left: 95px;
+    padding-bottom: 145px;
+
+    
+}
 
 
+/* .contact-us-top h1, p{
+    width: 525px;
+   text-align: center;
+} */
+.contact-us-top h1{
+    margin-bottom: 35px;
+}
+
+.contact-us-top p{
+    margin-bottom: 100px;
+}
+
+.contact-us-form{
+    /* margin-bottom: 145px; */
+    padding: 77px 65px 87px 65px;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 15px 0 rgba(0, 0, 0, 0.10);
+}
+
+
+.sm-field{
+    width: 45%;
+}
+
+.name{
+    clear: both;
+}
+
+.contact-form-field input, textarea{
+    /* margin: 23px 0 33px 0; */
+}
+
+.contact-form-field textarea{
+    width: 100%;
+    height: 180px;
+    border: unset;
+    background-image: url("../images/textarea-bg.png");
+}
+
+.contact-form-field input{
+    width: 100%;
+    height: 69px;
+    border: unset;
+    background-image: url("../images/form-input-bg.png");
+}
+
+
+
+.send-btn input{
+    width: 140px;
+    height: 45px;
+    border-radius: 35px;
+    background: white;
+    border: unset;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 15px 0 rgba(0, 0, 0, 0.10);
+
+}
+
+
+/* end of  contact us css  */
+
+
+/* Footer css start */
+.footer-wrapper{
+    padding: 70px 0 90px 0px;
+}
+
+.about-firefly{
+    width: 340px;
+}
+
+.footer-logo{
+    margin-bottom: 35px;
+}
+
+.footer-about-info{
+    margin-bottom: 35px;
+    color: #b1bbc8;
+}
+
+.term-condition a{
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+}
+.term-condition{
+    margin-bottom: 20px;
+}
+
+.footer-copyright{
+    font-size: 14px;
+    color: #b1bbc8;
+}
+
+.Categories-wrapper{
+    width: 100px;
+   
+}
+
+.footer-categories{
+    width: 100px;
+    margin-right: 120px;
+}
+
+.footer-categories h3{
+    margin-bottom: 20px;
+}
+
+.footer-categories li a{
+    text-decoration: none;
+}
+
+.footer-categories ul li{
+    list-style: none;
+    margin-bottom: 23px;
+}
+
+
+.footer-community{
+    width: 100px;
+    margin-right: 120px;
+}
+
+.footer-community h3{
+    margin-bottom: 20px;
+}
+
+.footer-community li a{
+    text-decoration: none;
+}
+
+.footer-community ul li{
+    list-style: none;
+    margin-bottom: 23px;
+}
+
+.footer-social{
+    width: 120px;
+}
+.footer-social h3{
+    margin-bottom: 40px;
+}
+
+
+.footer-social img{
+    margin-right: 10px;
+}
+
+
+/* footer css end */

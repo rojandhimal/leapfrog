@@ -6,21 +6,30 @@
     <meta name="Description" content="This is Static web">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">  <!--This is font cdn-->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/layout.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+    <![endif]-->
     <title>Final Project Static</title>
 </head>
 <body>
-    <div class="main-wraper">
+    <div class="main-wrapper">
        
             <header>
                 <div class="header-wrapper">
                     <div class="header-top-wrapper">
                         <div class=" main header-top">
                             <div class=" is-left nav-social ">
-                                <img src="images/social/facebook-icon.png" alt="facebook-icon">
-                                <img src="images/social/twitter-icon.png" alt="twitter-icon">
+                                    <!-- <i class="fab fa-facebook-f"></i> -->
+                                <a href="#"><img id="fb" src="images/social/facebook-icon.png" alt="facebook-icon"></a>
+                                <a href="#"><img id="tw" src="images/social/twitter-icon.png" alt="twitter-icon"></a>
+                                <a href="#"><img id="pin" src="images/social/pininterest-icon.png" alt="twitter-icon"></a>
+                                <a href="#"><img id="ins" src="images/social/insta-icon.png" alt="twitter-icon"></a>
+                                <a href="#"><img id="dri" src="images/social/dribble-icon.png" alt="twitter-icon"></a>
+
                             </div>
                             <div class="is-right hot-line">Hot Line +977-9813216037</div>
                          </div>
@@ -41,7 +50,7 @@
                                         <li><a href="#">Blog</a></li>
                                         <li><a href="#">Terms</a></li>
                                         <li><a href="#">Contact Us</a></li>
-                                        <a href="#"><img src="images/nav-icon.png" alt="nav icon"></a>
+                                        <a href="#"></a><img src="images/nav-icon.png" alt="nav icon"></a>
                                         
                                     </ul>
                                 </div>
@@ -133,13 +142,160 @@
 
                 <!--Starting of Lets build great things -->
 
-                
+                <div class="lets-build-wrapper">
+                        <div class="main">
+                            <div class="lets-build-container is-col3-inv is-left">
+                                <h1 id="lets-build-head">Our Service &amp;Special Fields </h1>
+                                <div class="lets-build-info">Lorem ipsum dolor sit amet consectetur
+                                     adipisicing elit. Consequatur praesentium omnis necessitatibus
+                                      dolore neque harum adipisci tempore odio delectus saepe.
+                                </div>
+                                
+                                <div class="lets-build-field">
+                                    <div class="lets-build is-left">
+                                        <h4 id="project-count">785</h4>
+                                        <h4>Project Completed</h4>  
+                                     </div>    
+                                </div>
+
+                                <div class="lets-build-field">
+                                        <div class="lets-build is-left">
+                                            <h4>623</h4>
+                                            <h4>Coffees Consumed</h4>  
+                                         </div>    
+                                </div>
+                                <div class="lets-build-field">
+                                    <div class="lets-build is-left">
+                                        <h4>519</h4>
+                                        <h4>Happy Customers</h4>  
+                                    </div>    
+                                </div>
+                                <div class="lets-build-field">
+                                    <div class="lets-build is-left">
+                                        <h4>246</h4>
+                                        <h4>Lines Of code</h4>  
+                                    </div>    
+                                </div>
+                            </div>
+        
+                        </div>
+                    </div>
 
                 <!-- End of lets start building great things -->
 
+                <!-- Start of contact us  -->
+
+                <div class="contact-us-wrapper">
+                    <div class="main">
+                        <div class="contact-us">
+                            <div class="contact-us-top">
+                                <h1>Contact Us</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Delectus dolorem dignissimos maiores voluptas ipsa architecto.</p>
+                            </div>
+
+                            <div class="contact-us-form">
+                                <div class="contact-form-field">
+                                    <div>
+                                    <label for="email">Email Address</label>
+                                     </div>
+                                    <input type="text" name="email" id="email">
+                                </div>
+                                <div class="name">
+                                    <div class="contact-form-field sm-field is-left ">
+                                        <div>
+                                            <label for="first-name">First Name</label>
+                                        </div>    
+                                            <input type="text" name="first-name" id="first-name">
+                                    </div>
+                                    <div class="contact-form-field sm-field is-right">
+                                        <div>
+                                            <label for="last-name">Last Name</label>
+                                        </div>
+                                            <input type="text" name="last-name" id="last-name">
+                                    </div>
+                                </div>
+                                <div class="contact-form-field clearfix">
+                                        <div>
+                                            <label for="last-name">Message</label>
+                                        </div>
+                                            <Textarea></Textarea>
+                                    </div>
+                                
+                                <div class="send-btn">
+                                    <input type="submit" name="" value="Send Now" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                <!-- End of contact us -->
+
+
+                <footer>
+                        <div class="nav-dash-line">
+                                <img src="images/nav-dash.png" alt="nav line">
+                        </div>
+                        <div class="main ">
+                            <div class="footer-wrapper">
+                                <div class="about-firefly is-left">
+                                    <div class="footer-logo"><img src="images/firefly-logo-new.png" alt="firefly-logo-new"></div>
+                                    <div class="footer-about-info" >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Ratione culpa voluptate eligendi fugiat dolor?
+                                        Eius explicabo natus eos minus illum.</div>
+                                    <div class="term-condition">
+                                        <a href="#privacy">Privacy Policy</a>
+                                        <a href="#privacy">Terms and Conditions</a>
+                                    </div>
+                                    <div class="footer-copyright" >Copyright &copy; ThemeXpert</div>
+                                
+                                </div>
+
+                                <div class="footer-other is-right">
+                                    <div class="footer-categories is-left">
+                                        <h3>Categories</h3>
+                                        <ul>
+                                            <li><a href="#home">Home</a></li>
+                                            <li><a href="#">Testimonials</a></li>
+                                            <li><a href="#">Team</a></li>
+                                            <li><a href="#">Career</a></li>
+                                            <li><a href="#">Contact</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="community-social is-right">
+                                        <div class="footer-community is-left">
+                                                <h3>Categories</h3>
+                                                <ul>
+                                                    <li><a href="#home">Home</a></li>
+                                                    <li><a href="#">Testimonials</a></li>
+                                                    <li><a href="#">Team</a></li>
+                                                    <li><a href="#">Career</a></li>
+                                                    <li><a href="#">Contact</a></li>
+                                                </ul>
+                                        </div>
+
+                                        <div class="footer-social is-right">
+                                            <h3>Follow us</h3>
+                                            <img src="images/social/footer-social/twitter.png" alt="twitter-icon">
+                                            <img src="images/social/footer-social/facebook.png" alt="facebook-icon">
+                                            <img src="images/social/footer-social/google.png" alt="google plus icon">
+                                            <img src="images/social/footer-social/tumbler.png" alt="tumbler icon">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        
+                </footer>
 
         </div>
-
     </div>
 </body>
 </html>
