@@ -83,6 +83,9 @@ padding: 15px 0;
 
 /* end of header css */
 
+.clear-fix{
+    clear: both;
+}
 
 /* starting container css */
 
@@ -105,12 +108,61 @@ padding: 15px 0;
     margin-top: 45px;
 }
 
-.container input{
-   margin: 0 auto;
+.btn{
+    margin: 25px 0 215px 0;
+    text-align: center;
 }
 
-.btn{
-    width: 80px;
-    margin: 0 auto;
-    
+#explore-btn{
+    height: 45px;
+    width: 140px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 1px 1px red;
+    background: red;
 }
+
+
+/* end of container */
+
+
+/* start of partner */
+
+.partner{
+    overflow: auto;
+    clear: both;
+    margin-bottom: 200px;;
+}
+
+.partner img{
+    margin-left: 70px;
+}
+
+
+/* end of partner  */
+
+
+/* Start of our services */
+
+.our-service h1{
+    margin-bottom: 30px;
+}
+.service-info{
+    width: 630px;
+    margin-bottom: 115px;
+}
+
+
+.special-items{
+    width: 330px;
+    height: 80px;
+    margin: 0 70px 80px 0;
+}
+
+.special-content{
+    width: 235px;
+    float: right;
+}
+
+
+
+
