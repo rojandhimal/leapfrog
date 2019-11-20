@@ -29,6 +29,10 @@
     
 }
 
+.navbar li a{
+    font-weight: lighter;
+    
+}
 
 
 .header-top-wrapper{
@@ -257,11 +261,13 @@
 
 .lets-build-container h4{
     text-transform: uppercase;
+    color: #b1bbc8;;
 }
 
 
-.lets-build-field h2{
+.lets-build h2{
     margin-bottom: 10px;
+    
 }
 
 
@@ -292,6 +298,10 @@
 
 .lets-build-field{
     width: 460px;
+    
+}
+.lets-build-field h2{
+font-weight: lighter;
 }
 
 .lets-build{
@@ -480,9 +490,21 @@
     text-transform: uppercase;
 }
 
+.footer-other li a{
+    color: #b1bbc8;
+}
+
+
+
 
 /* footer css end */
-h1
+h1,h3
 {
     font-weight: lighter;
+}
+
+p{
+    color: #b1bbc8;
+    font-weight: lighter;
+}
 }
