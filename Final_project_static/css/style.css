@@ -26,8 +26,8 @@
 
 
 .header-top-wrapper{
-background: white;
-padding: 15px 0;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px 0;
 }
 
 .header-top{
@@ -66,6 +66,11 @@ padding: 15px 0;
     overflow: auto;
 }
 
+
+
+.navbar{
+    background: rgba(255, 255, 255, 0.8);
+}
 
 .navbar-menu li {
     text-transform: uppercase;
@@ -183,7 +188,7 @@ padding: 15px 0;
 
 .lets-build-container{
     width: 750px;
-   margin-left: 95px;
+   margin-left: 215px;
    padding-bottom: 200px;
 }
 

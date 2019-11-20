@@ -3,3 +3,10 @@
     padding: 0%;
    
 }
+html { 
+    background: url("../images/web_bg_group_d.png") no-repeat center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
