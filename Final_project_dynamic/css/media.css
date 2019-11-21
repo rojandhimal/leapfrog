@@ -1,0 +1,70 @@
+
+@media screen and (max-width: 360px) {
+    .navbar ul {display: none;}
+    #nav-icon {
+        margin-right: 10px;
+    visibility: visible;
+    display: block;
+    }
+    .main{
+        width: 98%;
+        
+    }
+    .main p{margin-top: 10px;
+    margin-bottom: 10px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .navbar ul {display: none;}
+    #nav-icon {
+        margin-right: 30px;
+        border: 2px solid #45505e;
+    visibility: visible;
+    display: block;
+    }
+    .main{
+        width: 98%;
+        margin: 0 auto;
+    }
+    .main h1{
+        padding-top: 5em;
+        font-size: 1em;
+    }
+    .main p{
+        font-size: .9em;
+    }
+
+    .container {
+        padding-bottom: 2.5em;
+    }
+
+    .inner-content {
+        margin-top: 2em;
+    }
+    .container input{
+        margin-top: 2em;
+    }
+
+    .partner-logo img{
+        width: 10%;
+        height: 10%;
+        padding: 10px 0px;
+    }
+
+    .partner{
+        margin-bottom: 2.5em;
+    }
+
+
+    .our-customer h1{
+        padding-top: 0px;
+    }
+   
+    .our-service{
+        
+    }
+
+
+}

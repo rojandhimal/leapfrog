@@ -1,4 +1,39 @@
 .main{
-    max-width: 1140px;
-    padding: 0 auto;
+    max-width: 71.25em;
+    width: 100%;
+    margin: 0 auto;
 }
+
+
+.is-right{
+    float: right;
+}
+
+.is-left{
+    float: left;
+}
+
+.is-half{
+    width: 50%;
+}
+
+.is-col3{
+    width: 25%;
+}
+
+.is-col3-inv{
+    width: 75%;
+}
+
+.clearfix{
+    clear: both;
+}
+
+
+/* @media screen and (width: 100%){
+    #nav-icon{
+        display: none;
+    }
+} */
+
+
