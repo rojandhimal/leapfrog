@@ -5,7 +5,10 @@ var languages=['c','c++','java','php','python','js','R',
 
 console.log("old array >>>",languages);
 
-var unique_lang = languages.filter((val, i, languages)=> languages.indexOf(val)== i);
+var unique_lang = languages.filter(function(val, i, languages) {
+   return languages.indexOf(val)== i;
+
+});
 
 console.log("Unique array >>>",unique_lang);
 
@@ -21,5 +24,7 @@ for(x in unique_lang){
        
     }
     console.log(unique_lang[x],">>",count);
-    count= 0;
 }
+
+
+console.log(typeof(unique_lang));
