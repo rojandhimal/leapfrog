@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+.wrapper{
+    width: 1000px;
+    height: 500px;
+    border: 2px solid black;
+    position: relative;
+}
+
+#circle{
+  
+    height: 100px;
+    width: 100px;
+    border: 2px solid red;
+    border-radius: 80px;
+    background: red;
+    position: absolute;
+    left: 40%;
+    /* top: 40%; */
+
+}

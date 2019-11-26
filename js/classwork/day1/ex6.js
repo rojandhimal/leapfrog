@@ -26,13 +26,14 @@ function objCopy(srcObj) {
 
 function normalize(obj){  
     for(key in obj){
-        var element = obj[key];
+      
+       var element = obj[key];
         if(element.hasOwnProperty("children")){
             tempObj.id = element["id"];
             tempObj.name = element["name"];
             tempObj.children = [];
             for(childElement in element["children"]){
-              tempObj.children.push(childElement["id"]);
+              tempObj.children.push(element["children"][childElement]["id"]);
             }
             Object.defineProperty(output, element["id"], {value: objCopy(tempObj), configurable: true});
             delete tempObj["children"];
