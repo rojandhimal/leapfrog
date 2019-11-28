@@ -10,7 +10,9 @@
     overflow: hidden;
     padding-bottom:30px;
     margin-top:50px;
-    
+    border: 1px solid bisque;
+    /* padding-top: 10px 10px 0px 10px; */
+    /* height: 500px; */
 }
 
 
@@ -59,3 +61,7 @@ i.fa{
     font-size:48px;
     color: white;
 }   
+
+h4{
+    margin-top: 10px;
+}
