@@ -1,14 +1,29 @@
 var container = document.getElementById('container');
 var wrapper = document.getElementById('wrapper');
 var images = Array.from(wrapper.getElementsByTagName('img'));
-var position = document.getElementById('image-position');
+var img_pos = document.getElementById('image_position');
+
+
+
+
 var x;
 images.forEach(function (image, index) {
     // console.log("image", image, "index", index)
     image.style.left = index * image.width + 'px';
-    
     x=index;
+
+    var list= document.createElement('li');
+    console.log("list created",list);
+
+    list.setAttribute('value',index);
+    list.setAttribute('id',"img-li");
+    list.setAttribute('onClick','');
+    img_pos.appendChild(list);
+
+    
 });
+
+
 
 // console.log("images number",x)
 

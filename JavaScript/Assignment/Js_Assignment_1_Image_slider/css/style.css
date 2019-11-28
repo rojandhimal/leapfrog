@@ -6,6 +6,7 @@
     height: 500px;
     width: 900px;
     margin: 0 auto;
+    border: 2px solid black;
    
     overflow: hidden;
 }
@@ -39,3 +40,34 @@
 #one {
     left: 48%;
  }
+
+
+ .arrow-left{
+    position: absolute;
+    top: 174px;
+    font-size: 77px;
+    color: white;
+    z-index: 10;
+}
+.arrow-right{
+    position: absolute;
+    top: 174px;
+    left: 870px;
+    font-size: 77px;
+    color: white;
+    z-index: 10;
+}
+
+#image_position{
+    position: absolute;
+    bottom: 120px;
+    left: 450px;
+}
+#image_position li{
+    width: 40px;
+    height: 10px;
+    background-color: rgb(161, 161, 161);
+    float: left;
+    margin-left: 10px;
+    list-style: none;
+}
