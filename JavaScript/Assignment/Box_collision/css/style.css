@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.box-container{
+    width: 600px;
+    height: 600px;
+    background: rgb(228, 227, 226);
+    margin: 0 auto;
+    position: relative;
+}
+
+.box{
+    background-color: red;
+    position: absolute;
+}
+
+
