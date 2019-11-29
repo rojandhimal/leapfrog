@@ -12,10 +12,19 @@
     position: relative;
 }
 
-.box{
+.box
+{
+    /* background-image: url('https://www.animatedimages.org/data/media/183/animated-ant-image-0071.gif');
+    background-repeat: no-repeat;
+    background-size: 25px 25px; */
     background-color: red;
     /* background-image:url('../images/ant.png') ; */
     position: absolute;
 }
 
 
+.antcounter{
+    color: green;
+    width: 500px;
+    margin:0 auto ;
+}

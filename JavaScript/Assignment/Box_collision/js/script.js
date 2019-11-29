@@ -1,5 +1,7 @@
 (function () {
 
+
+
     function Box(parentElement, dx, dy) {
         this.parentElement = parentElement;
         this.width = 25;
@@ -8,9 +10,8 @@
         this.dy = dy || 1;
         this.x;
         this.y;
-        // this.speed = 1;
-        // this.x=5;
-        // var that=this;
+        this.state = 'alive';
+        var that=this;
 
         this.init = function () {
             var box = document.createElement('div');
@@ -19,7 +20,15 @@
             box.classList.add('box');
             this.parentElement.appendChild(box);
             this.element = box;       //this shows box is element
-            // this.element.onclick = this.boxClicked.bind(this);
+            this.element.onclick = function () {
+                console.log("Box clicked dead");
+                that.element.state = 'dead';
+                console.log("click state",that.element.state);
+                
+                setTimeout(function () {
+                    that.parentElement.removeChild(that.element);
+                }, 1000)
+            }
             this.draw();
             return this;
 
@@ -30,7 +39,7 @@
             this.y = y;
         }
         // this.checkOverlap = function(){
-            
+
         // }
 
         this.draw = function () {             //draw box at x y cordinate
@@ -38,7 +47,7 @@
             this.element.style.top = this.y + 'px'
         }
 
-        
+
 
 
         this.move = function () {
@@ -73,18 +82,22 @@
                         (this.y + this.height > boxes[i].y)) {
                         this.dx = -this.dx;
                         this.dy = -this.dy;
-                        console.log("collision");
+                        // console.log("collision");
 
                     }
                 } else {
-                    console.log("no col");
+                    // console.log("no col");
                 }
             }
         }
 
-        this.boxClicked = function () {
-            console.log("Box clicked");
-        }
+        // this.boxClicked = function () {
+        //     console.log("Box clicked dead");
+        //     this.state='dead';
+        //     setTimeout(function(){
+        //         that.parentElement.removeChile(that.element);
+        //     },1000)
+        // }
 
     } //This is end of Box class
 
@@ -99,29 +112,29 @@
     // }
 
 
-    function genPosition(count){
+    function genPosition(count) {
         var genx = getRandomArbitrary(0, MAX_WIDTH - 27);
         var geny = getRandomArbitrary(0, MAX_WIDTH - 27);
-        if(isInArray(xlist,x)==true && isInArray(ylist,y)==true){
+        if (isInArray(xlist, x) == true && isInArray(ylist, y) == true) {
             genx = getRandomArbitrary(0, MAX_WIDTH - 27);
             geny = getRandomArbitrary(0, MAX_WIDTH - 27);
         }
-        isOverlaped(genx,geny);
+        isOverlaped(genx, geny);
     }
 
 
-    var xlist= [];
+    var xlist = [];
     var ylist = [];
-    function isOverlaped(x,y){
-        
+    function isOverlaped(x, y) {
+
     }
 
-    function isInArray(lis,x){
-        for(var i=0;i<lis.length;i++){
-            if(x==li[i]){
+    function isInArray(lis, x) {
+        for (var i = 0; i < lis.length; i++) {
+            if (x == li[i]) {
                 return true;
             }
-            
+
         }
     }
 
@@ -135,7 +148,7 @@
         var MAX_WIDTH = 500;
         var MAX_HEIGHT = 500;
         this.parentElement = parentElement;
-        this.boxCount = boxCount || 10;
+        this.boxCount = boxCount || 2;
 
 
         this.startGame = function () {
@@ -163,9 +176,18 @@
 
         this.moveBoxes = function () {
             for (var i = 0; i < this.boxCount; i++) {
-                boxes[i].move();
-                boxes[i].checkCollision(boxes)
+                if (boxes[i].state == 'alive') {
+                    boxes[i].move();
+                    boxes[i].checkCollision(boxes);
+                }
+               else{
+                    boxes.splice(i, 1);
+                    // console.log("dead",boxes.length);
+                }
+                
+                // document.getElementById('ant').innerHTML=boxes.length;
             }
+            
         }
 
     }  //This is end of Game Class
