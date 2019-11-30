@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.container{
+    height: 650px;
+    width: 762px;
+    margin: 0 auto;
+
+}
+
+
+.container{
+    position: relative;
+}
+
+.lane{
+    height: 650px;
+    width: 762px;
+    background-image: url(../images/lane3.png);
+}
+
+.car{
+    width: 100px;
+    height: 240px;
+    background-image: url(../images/car-start.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 60%;
+    left: 90px;
+    /* display: none; */
+}
+
+
+ .score-box{
+     position: absolute;
+    color: red;
+    margin-left: 50px;
+    margin-top: 30px;
+    padding: 5px;
+    border: 2px solid blue;
+}

@@ -22,12 +22,13 @@
             this.element = box;       //this shows box is element
             this.element.onclick = function () {
                 console.log("Box clicked dead");
+                this.style.backgroundImage='url("../images/ant.png")';
                 that.element.state = 'dead';
                 console.log("click state",that.element.state);
                 
                 setTimeout(function () {
                     that.parentElement.removeChild(that.element);
-                }, 1000)
+                }, 3000)
             }
             this.draw();
             return this;
@@ -148,13 +149,13 @@
         var MAX_WIDTH = 500;
         var MAX_HEIGHT = 500;
         this.parentElement = parentElement;
-        this.boxCount = boxCount || 2;
+        this.boxCount = boxCount || 10;
 
 
         this.startGame = function () {
             for (var i = 0; i < this.boxCount; i++) {
-                var dx = getRandomArbitrary(-5, 5);
-                var dy = getRandomArbitrary(-5, 5);
+                var dx = getRandomArbitrary(-3, 3);
+                var dy = getRandomArbitrary(-3, 3);
                 var box = new Box(parentElement, dx, dy).init();
                 // box.classList.add('box'+i);
                 var genx = getRandomArbitrary(0, MAX_WIDTH - 27);
