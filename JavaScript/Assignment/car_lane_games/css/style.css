@@ -5,8 +5,8 @@
 
 
 .container{
-    height: 650px;
-    width: 762px;
+    height: 600px;
+    width: 500px;
     margin: 0 auto;
 
 }
@@ -17,19 +17,23 @@
 }
 
 .lane{
-    height: 650px;
-    width: 762px;
-    background-image: url(../images/lane3.png);
+    position: absolute;
+    top: 20px;
+    /* margin-top: 50px; */
+    height: 620px;
+    width: 500px;
+    background-image: url(../images/lane6.png);
 }
 
 .car{
-    width: 100px;
-    height: 240px;
-    background-image: url(../images/car-start.png);
+    width: 50px;
+    height: 120px;
+    background-image: url(../images/1.png);
     background-repeat: no-repeat;
     position: absolute;
-    top: 60%;
+    top: 80%;
     left: 90px;
+    background-size: 100% 90%;
     /* display: none; */
 }
 
