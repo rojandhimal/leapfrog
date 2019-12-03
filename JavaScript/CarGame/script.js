@@ -179,8 +179,9 @@
         }
 
         this.updateBullet = function () {
-            this.bulletElement.style.backgroundColor = "#44a5ea";
-            // this.bulletElement.style.backgroundImage='url("Images/b.png")';
+            // this.bulletElement.style.backgroundColor = "#44a5ea";
+            this.bulletElement.style.backgroundImage='url("Images/b.png")';
+            this.bulletElement.style.backgroundSize='100% 100%';
 
             this.positionY += 10;
             this.setBulletPosition();
