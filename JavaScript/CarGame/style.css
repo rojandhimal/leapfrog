@@ -1,0 +1,71 @@
+*{
+    margin:0;
+    padding:0;
+ 
+}
+
+.game-container{
+    width:50em;
+    margin: 0 auto;
+    content: "";
+    clear: both;
+    display: table;
+}
+.game-wrapper{
+    width: 80%;
+    float: left;
+    overflow: hidden;
+
+}
+.road{
+    background-image: url("images/lane6.png");
+    background-repeat: repeat-y;
+
+    background-size: cover;
+    height:700px;
+    position: relative;
+    
+
+}
+.car{
+    background-image: url('images/run.png');
+     background-repeat:no-repeat;
+    background-size: contain ;
+    background-position: center;
+    position: absolute;
+}
+
+.obstacle{
+    background-repeat:no-repeat;
+    background-size: contain ;
+    position: absolute;
+    background-position: center;
+
+}
+
+
+.score-board {
+    width: 20%;
+    float:left;
+   background-color: rgba(87, 86, 85, 0.5);
+    padding:20px 0;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+}
+.score-board span{
+    display: block;
+}
+.score-board span #high-score{
+    color: rgb(255, 255, 255);
+}
+.score-board span #your-score{
+    color: rgb(255, 255, 255);
+    
+}
+
+
+#bullet{
+    background-image: url("images/b.png");
+}
