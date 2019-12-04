@@ -13,8 +13,8 @@ class GameStarter {
 
 
     draw = () => {
-        this.canvasElement = document.createElement('canvas');
-        this.ctx = this.canvasElement.getContext('2d');
+        this.canvasElement = document.createElement('div');
+        // this.ctx = this.canvasElement.getContext('2d');
         this.canvasElement.style.height = this.height+'px';
         this.canvasElement.style.width = this.width+'px';
         this.canvasElement.style.border = '1px soldi #000';

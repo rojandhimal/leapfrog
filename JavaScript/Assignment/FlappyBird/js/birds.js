@@ -10,20 +10,21 @@ class Birds {
     }
 
     draw = () => {
-        this.ctx=this.parentElement.getContext('2d');
-        this.ctx.drawImage(url("images/flappy_bird1.gif"),10,10);
+        // this.ctx=this.parentElement.getContext('2d');
+        // this.ctx.drawImage(url("images/flappy_bird1.gif"),10,10);
 
-        // this.birdElement = document.createElement('img');
-        // this.birdElement.style.position = 'absolute';
-        // this.birdElement.style.height = this.height + 'px';
-        // this.birdElement.style.width = this.width + 'px';
-        // this.birdElement.style.left = '50px';
-        // // this.birdElement.style.backgroundColor = '#d8d18f';
-        // this.birdElement.style.backgroundImage = 'url("images/flappy_bird1.gif")';
-        // this.birdElement.style.top = this.top + 'px';
-        // this.birdElement.style.backgroundSize = '100% 100%';
+        this.birdElement = document.createElement('img');
+        this.birdElement.style.position = 'absolute';
+        this.birdElement.style.height = this.height + 'px';
+        this.birdElement.style.width = this.width + 'px';
+        this.birdElement.style.top = '150px';
+        this.birdElement.style.left = '50px';
+        // this.birdElement.style.backgroundColor = '#d8d18f';
+        this.birdElement.style.backgroundImage = 'url("images/flappy_bird1.gif")';
+        this.birdElement.style.top = this.top + 'px';
+        this.birdElement.style.backgroundSize = '100% 100%';
 
-        // this.parentElement.appendChild(this.birdElement);
+        this.parentElement.appendChild(this.birdElement);
 
     };
 
