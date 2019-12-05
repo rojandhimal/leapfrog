@@ -1,6 +1,28 @@
 // SELECT CVS
-const cvs = document.getElementById("bird");
-const ctx = cvs.getContext("2d");
+
+
+class fgame{
+    constructor(canvasName){
+        this.canvasName=canvasName;  
+        this.cvs;
+        this.ctx;
+    }
+
+   init =() => {
+    this.cvs = document.getElementById(this.canvasName);
+    return this.cvs;
+   }
+}
+
+let cvs = new fgame('bird').init();
+
+// new fgame('bird2').init();
+
+ctx = cvs.getContext("2d");
+
+
+
+
 
 // GAME VARS AND CONSTS
 let frames = 0;
@@ -47,12 +69,12 @@ cvs.addEventListener("click", function(evt){
     switch(state.current){
         case state.getReady:
             state.current = state.game;
-            SWOOSHING.play();
+           
             break;
         case state.game:
             if(bird.y - bird.radius <= 0) return;
             bird.flap();
-            FLAP.play();
+           
             break;
         case state.over:
             let rect = cvs.getBoundingClientRect();
@@ -168,7 +190,7 @@ const bird = {
                 this.y = cvs.height - fg.h - this.h/2;
                 if(state.current == state.game){
                     state.current = state.over;
-                    DIE.play();
+               
                 }
             }
             
@@ -273,12 +295,12 @@ const pipes = {
             // TOP PIPE
             if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > p.y && bird.y - bird.radius < p.y + this.h){
                 state.current = state.over;
-                HIT.play();
+          
             }
             // BOTTOM PIPE
             if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > bottomPipeYPos && bird.y - bird.radius < bottomPipeYPos + this.h){
                 state.current = state.over;
-                HIT.play();
+         
             }
             
             // MOVE THE PIPES TO THE LEFT
@@ -288,7 +310,7 @@ const pipes = {
             if(p.x + this.w <= 0){
                 this.position.shift();
                 score.value += 1;
-                SCORE_S.play();
+              
                 score.best = Math.max(score.value, score.best);
                 localStorage.setItem("best", score.best);
             }
