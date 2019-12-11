@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.game-wrapper{
+    width:1280px;
+    margin: 0 auto;
+}
+
+/* #gameCanvas{
+    height: 500px;
+    width: 1000px;
+} */
