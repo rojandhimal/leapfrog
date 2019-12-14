@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    text-align: left;
+
+}
+
+table {
+    margin: 0 auto;
+}
+
+th,
+td {
+    padding: 10px;
+    width: 300px;
+}
+
+
