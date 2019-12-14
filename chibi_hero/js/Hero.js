@@ -7,7 +7,7 @@ function Hero(game) {
     this.width = 70;
     this.height = 100;
     this.x = 50;
-    this.y =353;
+    this.y = 353;
     this.frame = 0; //for animation
     this.sprite_hero_1 = new Image();
     this.sprite_hero_1.src = 'images/chibihero01_idle.png'
@@ -15,10 +15,9 @@ function Hero(game) {
     this.speed = 0;
     this.gravity = 0.25;
     this.jump = 4;
-    
 
+    this.movestate = 0;
 
-    
 
     var that = this;
 
@@ -55,7 +54,7 @@ function Hero(game) {
     ];
 
 
-    this.update = function(){
+    this.update = function () {
         this.frame = ++this.frame % this.animation.length;
     }
 
@@ -71,25 +70,37 @@ function Hero(game) {
         ctx.restore();
     }
 
-    
+    this.moveLR = function (speed) {
+        console.log('Moved');
+        console.log("speed=>", speed, 'x=>', this.x);
+        // tctx.translate(50, 10);
+        this.speed = speed;
+       
+        if (this.x < 100) {
+            this.x = 100;
+        }
+        else if (this.x >= 750) {
+            this.x = 750;
+        }
+        else if (this.x < 0) {
+            this.x = 0;
+        }
+        else{
+            this.x = this.x + this.speed;
+        }
 
-    // this.update = function() {
-    //     this.speed += this.gravity;
-    //     this.y += this.speed;
 
-    //     //collision with base ground
-    //     if (this.y + this.height / 2 >= 400) { // 400 = canvasHeight-baseGroundHeight
-    //         this.y = 400 - this.height / 2;
-    //     }
 
-    // }
+    }
+    this.moveUD = function (speed) {
+        console.log('Moved');
 
-    // this.flyUp = function() {
-    //     this.speed = -this.jump;
-    // }
+        this.speed = speed
+        console.log(this.y);
 
-    // this.reset = function() {
-    //     this.y = 150;
-    //     this.speed = 0;
-    // }
+        this.y = this.y + this.speed;
+    }
+
+
+
 }

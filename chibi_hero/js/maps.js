@@ -21,6 +21,10 @@ function Maps(game) {
     this.mheight;
     this.posX = 0;
     this.posY = 0;
+    this.vx = 0;    //view port x cordinate
+    this.vy = 0;       //view port y cordinate
+    this.vw;    //view port width
+    this.vh;    //view port height
 
 
     this.map1Grass;
@@ -102,20 +106,39 @@ function Maps(game) {
 
     }
 
-    this.draw = function (ctx, i, j) {
+
+    this.viewport = function (x, y, w, h) {
+        this.vx = x; this.vy = y; this.vw = w; this.vh = h;
+    };
+
+    this.updateViewPortX =function(x){
+        this.vx=x;
+    };
+
+    this.draw = function (ctx,  i, j) {
         // console.log("draw frommap called");
         // console.log("msx",this.msX,"msy",this.msY);
 
         this.mwidth = 50;
         this.mheight = 50;
-        this.posX = this.mwidth * j;
+
+        //set view point code here
+        // console.log("vx=>",this.vx);
+        // console.log("vy",this.vy);
+        
+        
+        this.posX = this.mwidth * j - this.vx;
         this.posY = this.mheight * i;
+        // ctx.translate(5, 5);
+        // this.ctx.clearRect(this.posX, this.posY, 50, 50);
         this.ctx.drawImage(this.tileSet1_sprite, this.msX, this.msY, 64, 63, this.posX, this.posY, 50, 50);
     }
 
 
     this.drawMap = function (ctx) {
         this.ctx = ctx;
+        // this.ctx.clearRect(this.posX, this.posY, 1280,650);
+        // this.ctx.translate(-1,0)
         for (let i = 0; i < this.map1.length; i++) {
             for (let j = 0; j < this.map1[i].length; j++) {
                 if (this.map1[i][j] == 1) {
@@ -141,12 +164,13 @@ function Maps(game) {
 
     }
 
-    this.update = function () {
-
+    this.update = function (ctx) {
+        this.ctx.clearReck(0, 0, 1280, 650);
+        this.drawMap(this.ctx);
     }
 
 
-    console.log(this.gameMap);
+    // console.log(this.gameMap);
 
 
 }

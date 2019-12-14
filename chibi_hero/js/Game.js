@@ -1,7 +1,10 @@
+
+
 function Game(canvas, ctx) {
-    console.log(canvas);
+    // console.log(canvas);
     canvas.width = 1280;
     canvas.height = 650;
+
     var that = this;
 
     var frames = 0;
@@ -20,6 +23,9 @@ function Game(canvas, ctx) {
     this.x = 0; // destination left position
     this.y = canvas.height - this.height; //destination top position
 
+    this.setviewportX = 0;
+    this.setviewportY = 0;
+
     //GAME STATE
     var state = {
         current: 0,
@@ -36,31 +42,32 @@ function Game(canvas, ctx) {
     this.map = new Maps(game1);
     this.map.init();
 
-    this.gameLoop = function() {
+    this.gameLoop = function () {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
         that.control();
         that.draw();
         that.update();
         // console.log(frames);
-        
+
         frames++;
         requestAnimationFrame(that.gameLoop);
     }
 
-    this.draw = function() {
+    this.draw = function () {
 
         //bg color
-        ctx.fillStyle = '#4ec0ca';
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // ctx.fillStyle = '#4ec0ca';
+
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // background image draw
         ctx.drawImage(sprite_bg, this.sX, this.sY, this.width, this.height,
             this.x, this.y, this.width, this.height);
 
-        // this.pipe.draw(ctx, this.pipeArray);
-        // this.baseGround.draw(ctx);
-        this.hero.draw(ctx);
+        ;
         this.map.drawMap(ctx);
+        this.hero.draw(ctx);
+
 
 
         if (state.current == state.getReady) {
@@ -79,7 +86,7 @@ function Game(canvas, ctx) {
     }
 
 
-    this.update = function() {
+    this.update = function () {
         // if (state.current == state.game) {
         //     that.bird.update();
         //     that.baseGround.update();
@@ -89,30 +96,80 @@ function Game(canvas, ctx) {
         // }
     }
 
-    this.control = function() {
+    this.control = function () {
 
-        canvas.addEventListener('click', function(event) {
-            switch (state.current) {
-                case state.getReady:
-                    
-                case state.game:
-                   
-                case state.over:
-                   
-                    break;
+        window.onkeyup = function (e) {
+            var key = e.keyCode ? e.keyCode : e.which;
+            var x;
+            if (key == 37) {
+                console.log("left");
+               
+                x = -50;
+                that.hero.moveLR(x);
+
+                console.log(that.hero.x);
+                console.log('view port x',that.setviewportX);
+                
+                
+                if(that.setviewportX<=0){
+                    this.setviewportX=600;
+                }
+                else{
+                    that.setviewportX = that.setviewportX - 50;
+                }
+                that.map.updateViewPortX(that.setviewportX);
+
+
+
+            } else if (key == 39) {
+                console.log("right");
+                x = 50;
+                that.hero.moveLR(x);
+                // ctx.translate(-10, 20);
+                // that.hero.movestate = 2;
+                console.log(that.hero.x);
+                console.log("viewport x", that.setviewportX);
+                if (that.hero.x > canvas.width / 2) {
+                    that.setviewportX = that.setviewportX + 50;
+                    if (that.setviewportX >= 1700) {
+                        that.setviewportX = 1700;
+                    }
+                    that.map.updateViewPortX(that.setviewportX);
+                }
+
             }
-        });
+
+            else if (key == 38) {
+                console.log("up");
+                y = -100;
+                that.hero.moveUD(y);
+                //this is for updating map
+                if (that.hero.x > canvas.width / 2) {
+                    that.setviewportX = that.setviewportX + 50;
+                    if (that.setviewportX >= 1700) {
+                        that.setviewportX = 1700;
+                    }
+                    that.map.updateViewPortX(that.setviewportX);
+                }
+            }
+            else if (key == 40) {
+                console.log("down");
+                y = 100;
+                that.hero.moveUD(y);
+            }
+        };
     }
 
-
-  
 
 }
 
 var canvas1 = document.getElementById('gameCanvas');
+// canvas1.style.backgroundImage="red";
 var ctx1 = canvas1.getContext('2d');
 var game1 = new Game(canvas1, ctx1).gameLoop();
 
 // var canvas2 = document.getElementById('game-container2');
 // var ctx2 = canvas2.getContext('2d');
 // var game2 = new Game(canvas2, ctx2).gameLoop();
+
+
