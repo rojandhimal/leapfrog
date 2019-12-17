@@ -36,7 +36,6 @@ function Maps(game) {
 
         console.log("map initialized");
 
-
         this.gameMap = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -87,7 +86,7 @@ function Maps(game) {
             [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
         ];
 
-        this.map2 = [
+        this.map3 = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -107,12 +106,23 @@ function Maps(game) {
     }
 
 
+
+    this.getMapPosition = function (x, y) {
+        var mapCoordinate = {
+            'i': x / 50,
+            'j': y / 50,
+            'value': that.map1[y / 50][x / 50]
+        }
+        return mapCoordinate;
+    }
+
+
     this.viewport = function (x, y, w, h) {
         this.vx = x; this.vy = y; this.vw = w; this.vh = h;
     };
 
     this.updateViewPortX =function(x){
-        this.vx=x;
+        this.vx=x; 
     };
 
     this.draw = function (ctx,  i, j) {
@@ -164,10 +174,10 @@ function Maps(game) {
 
     }
 
-    this.update = function (ctx) {
-        this.ctx.clearReck(0, 0, 1280, 650);
-        this.drawMap(this.ctx);
-    }
+    // this.update = function (ctx) {
+    //     this.ctx.clearReck(0, 0, 1280, 650);
+    //     this.drawMap(this.ctx);
+    // }
 
 
     // console.log(this.gameMap);

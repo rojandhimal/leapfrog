@@ -2,9 +2,8 @@
 
 function Game(canvas, ctx) {
     // console.log(canvas);
-    canvas.width = 1280;
+    canvas.width = 1200;
     canvas.height = 650;
-
     var that = this;
 
     var frames = 0;
@@ -14,7 +13,7 @@ function Game(canvas, ctx) {
     //load sprite image
     var sprite_bg = new Image();
     sprite_bg.src = 'images/bg_01.png';
-
+    this.checkCollision;
     //background image setup
     this.sX = 0;
     this.sY = 0;
@@ -38,8 +37,9 @@ function Game(canvas, ctx) {
     var best = score;
 
     // this.baseGround = new BaseGround(canvas.height);
-    this.hero = new Hero(game1);
+
     this.map = new Maps(game1);
+    this.hero = new Hero(game1, this.map);
     this.map.init();
 
     this.gameLoop = function () {
@@ -66,7 +66,7 @@ function Game(canvas, ctx) {
 
         ;
         this.map.drawMap(ctx);
-        this.hero.draw(ctx);
+        this.hero.draw(ctx, this.map);
 
 
 
@@ -95,6 +95,37 @@ function Game(canvas, ctx) {
         //     that.checkPipeCollision();
         // }
     }
+    var x = this.hero.x;
+    // console.log('fromgame hero x',x);
+
+    this.checkCollision = function () {
+
+        let i = Math.floor((this.hero.y + 50) / 50);
+        let j = Math.floor((this.hero.x_old) / 50);
+        console.log('hero value old x', this.hero.x_old);
+        console.log('hero value this x', this.hero.x);
+        console.log(' i', i, 'j', j);
+
+        // console.log(x);
+
+        if (this.map.map1[i][j] == 1 || this.map.map1[i][j] ) {
+            // this.state.current=this.state.over;
+            console.log('collision detected at i', i, 'j', j);
+
+
+        }
+
+    }
+
+
+    this.checkDownTile = function(){
+        let i = Math.floor((this.hero.y+50)/50); //one step down than current y
+        let y = Math.floor((this.hero.x_old/50)); //current y position
+    }
+
+    console.log('map cordinate', this.map.map1[10][10]);
+
+
 
     this.control = function () {
 
@@ -103,21 +134,25 @@ function Game(canvas, ctx) {
             var x;
             if (key == 37) {
                 console.log("left");
-               
+
                 x = -50;
+
                 that.hero.moveLR(x);
 
+
                 console.log(that.hero.x);
-                console.log('view port x',that.setviewportX);
-                
-                
-                if(that.setviewportX<=0){
-                    this.setviewportX=600;
+                console.log('view port x', that.setviewportX);
+
+
+                if (that.setviewportX <= 0) {
+                    this.setviewportX = 600;
                 }
-                else{
+                else {
                     that.setviewportX = that.setviewportX - 50;
                 }
                 that.map.updateViewPortX(that.setviewportX);
+
+
 
 
 
@@ -127,13 +162,15 @@ function Game(canvas, ctx) {
                 that.hero.moveLR(x);
                 // ctx.translate(-10, 20);
                 // that.hero.movestate = 2;
+                that.checkCollision();
                 console.log(that.hero.x);
                 console.log("viewport x", that.setviewportX);
-                if (that.hero.x > canvas.width / 2) {
+                if (that.hero.x_old > 600) {
                     that.setviewportX = that.setviewportX + 50;
                     if (that.setviewportX >= 1700) {
                         that.setviewportX = 1700;
                     }
+
                     that.map.updateViewPortX(that.setviewportX);
                 }
 
@@ -144,13 +181,13 @@ function Game(canvas, ctx) {
                 y = -100;
                 that.hero.moveUD(y);
                 //this is for updating map
-                if (that.hero.x > canvas.width / 2) {
-                    that.setviewportX = that.setviewportX + 50;
-                    if (that.setviewportX >= 1700) {
-                        that.setviewportX = 1700;
-                    }
-                    that.map.updateViewPortX(that.setviewportX);
-                }
+                // if (that.hero.x > canvas.width / 2) {
+                //     that.setviewportX = that.setviewportX + 50;
+                //     if (that.setviewportX >= 1700) {
+                //         that.setviewportX = 1700;
+                //     }
+                //     that.map.updateViewPortX(that.setviewportX);
+                // }
             }
             else if (key == 40) {
                 console.log("down");
