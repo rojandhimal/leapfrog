@@ -13,6 +13,21 @@ function Game(canvas, ctx) {
     //load sprite image
     var sprite_bg = new Image();
     sprite_bg.src = 'images/bg_01.png';
+
+    this.sprite_hero_1 = new Image();
+    this.sprite_hero_1.src = 'images/chibihero01_idle.png';
+    this.goRightSprite = new Image();
+    this.goRightSprite.src = 'images/chibichar_sheet1.png';
+    this.goLeftSprite = new Image();
+    this.goLeftSprite.src = 'images/chibichar_sheet3.png';
+
+    this.sprite_enemy_1 = new Image();
+    this.sprite_enemy_1.src = 'images/enemy01_sheet0.png';
+    // this.surikenSprite = new Image();
+    // this.surikenSprite.src = 'images/shuriken_item_sheet0.png';
+
+
+    this.currentAnimation=this.sprite_hero_1;
     this.checkCollision;
     //background image setup
     this.sX = 0;
@@ -25,6 +40,11 @@ function Game(canvas, ctx) {
     this.setviewportX = 0;
     this.setviewportY = 0;
 
+   
+
+    this.gravity = 3;
+    this.hold=1;        //hold has two value true orfalse if true hero is hold in tile else fall
+
     //GAME STATE
     var state = {
         current: 0,
@@ -33,6 +53,10 @@ function Game(canvas, ctx) {
         over: 2
     };
 
+
+ 
+
+
     var score = 0;
     var best = score;
 
@@ -40,6 +64,7 @@ function Game(canvas, ctx) {
 
     this.map = new Maps(game1);
     this.hero = new Hero(game1, this.map);
+    this.bot = new Bot(game1, this.map);
     this.map.init();
 
     this.gameLoop = function () {
@@ -66,7 +91,9 @@ function Game(canvas, ctx) {
 
         ;
         this.map.drawMap(ctx);
-        this.hero.draw(ctx, this.map);
+        this.hero.draw(ctx,this.currentAnimation);
+        this.bot.draw(ctx);
+
 
 
 
@@ -94,6 +121,11 @@ function Game(canvas, ctx) {
         //     that.generatePipes();
         //     that.checkPipeCollision();
         // }
+
+
+        //falling hero
+        this.checkDownTile();
+       
     }
     var x = this.hero.x;
     // console.log('fromgame hero x',x);
@@ -108,7 +140,7 @@ function Game(canvas, ctx) {
 
         // console.log(x);
 
-        if (this.map.map1[i][j] == 1 || this.map.map1[i][j] ) {
+        if (this.map.map1[i][j] == 1 || this.map.map1[i][j] == 2) {
             // this.state.current=this.state.over;
             console.log('collision detected at i', i, 'j', j);
 
@@ -118,9 +150,24 @@ function Game(canvas, ctx) {
     }
 
 
-    this.checkDownTile = function(){
-        let i = Math.floor((this.hero.y+50)/50); //one step down than current y
-        let y = Math.floor((this.hero.x_old/50)); //current y position
+    this.checkDownTile = function () {
+        let i = Math.floor((this.hero.y + 100) / 50); //one step down than current y
+        let j = Math.floor((this.hero.x_old / 50)); //current y position
+        if (this.map.map1[i][j] == 1 || this.map.map1[i][j] == 2) {
+            // this.state.current=this.state.over; 
+            this.hold=0;   //hold flag true means hold flag set to hold the player in the tile  
+            // console.log('collision detected at i', i, 'j', j);
+
+
+        }
+        else{
+            this.hero.y = this.hero.y + this.gravity;
+            if(this.hero.y>550){
+                state.current=state.over;
+            }
+            
+        }
+
     }
 
     console.log('map cordinate', this.map.map1[10][10]);
@@ -129,14 +176,14 @@ function Game(canvas, ctx) {
 
     this.control = function () {
 
-        window.onkeyup = function (e) {
+        window.onkeydown = function (e) {
             var key = e.keyCode ? e.keyCode : e.which;
             var x;
             if (key == 37) {
                 console.log("left");
 
                 x = -50;
-
+                this.currentAnimation=this.goLeftSprite;
                 that.hero.moveLR(x);
 
 
@@ -159,6 +206,8 @@ function Game(canvas, ctx) {
             } else if (key == 39) {
                 console.log("right");
                 x = 50;
+                that.currentAnimation=that.goRightSprite;
+               
                 that.hero.moveLR(x);
                 // ctx.translate(-10, 20);
                 // that.hero.movestate = 2;
@@ -173,13 +222,17 @@ function Game(canvas, ctx) {
 
                     that.map.updateViewPortX(that.setviewportX);
                 }
+                
 
             }
 
             else if (key == 38) {
                 console.log("up");
-                y = -100;
-                that.hero.moveUD(y);
+                y = -50;
+
+                this.setTimeout(that.hero.moveUD(y),3000);
+                // this.setTimeout(that.hero.moveUD(y),3000);
+                // this.setTimeout(that.hero.moveUD(y),3000);
                 //this is for updating map
                 // if (that.hero.x > canvas.width / 2) {
                 //     that.setviewportX = that.setviewportX + 50;
@@ -191,14 +244,74 @@ function Game(canvas, ctx) {
             }
             else if (key == 40) {
                 console.log("down");
-                y = 100;
+                y = 150;
                 that.hero.moveUD(y);
+                that.checkDownTile();
+
+            }
+
+            else if (key == 88) {
+                console.log("fire");
+                
+
+               
+
             }
         };
     }
+    window.onkeyup = function (e) {
+        var key = e.keyCode ? e.keyCode : e.which;
+        var x;
+        if (key == 37) {
+            console.log(" key up left");
 
+   
 
+        } else if (key == 39) {
+            console.log("right");
+            x = 50;
+            that.currentAnimation=that.sprite_hero_1;
+           
+            
+
+        }
+
+        else if (key == 38) {
+            console.log("up");
+            y = -50;
+
+            this.setTimeout(that.hero.moveUD(y),3000);
+            // this.setTimeout(that.hero.moveUD(y),3000);
+            // this.setTimeout(that.hero.moveUD(y),3000);
+            //this is for updating map
+            // if (that.hero.x > canvas.width / 2) {
+            //     that.setviewportX = that.setviewportX + 50;
+            //     if (that.setviewportX >= 1700) {
+            //         that.setviewportX = 1700;
+            //     }
+            //     that.map.updateViewPortX(that.setviewportX);
+            // }
+        }
+        else if (key == 40) {
+            console.log("down");
+            y = 150;
+            that.hero.moveUD(y);
+            that.checkDownTile();
+
+        }
+
+        else if (key == 88) {
+            console.log("fire");
+            
+
+           
+
+        }
+    };
 }
+
+
+
 
 var canvas1 = document.getElementById('gameCanvas');
 // canvas1.style.backgroundImage="red";

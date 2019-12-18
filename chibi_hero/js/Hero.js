@@ -21,6 +21,7 @@ function Hero(game,map) {
     this.jump = 4;
 
     this.movestate = 0;
+    this.spriteimg;
 
 
     var that = this;
@@ -28,34 +29,34 @@ function Hero(game,map) {
 
     // birds animation
     this.animation = [
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 30, sY: 30 }, //1st bird
-        { sX: 160, sY: 30 }, // 2nd bird
-        { sX: 160, sY: 30 }, // 2nd bird
-        { sX: 160, sY: 30 }, // 2nd bird
-        { sX: 160, sY: 30 }, // 2nd bird
-        { sX: 160, sY: 30 }, // 2nd bird
-        { sX: 160, sY: 30 }, // 2nd bird
-        { sX: 160, sY: 30 }, // 2nd bird
-        { sX: 160, sY: 30 }, // 2nd bird
-        { sX: 290, sY: 30 }, //3rd bird
-        { sX: 290, sY: 30 }, //3rd bird
-        { sX: 290, sY: 30 }, //3rd bird
-        { sX: 290, sY: 30 }, //3rd bird
-        { sX: 290, sY: 30 }, //3rd bird
-        { sX: 290, sY: 30 }, //3rd bird
-        { sX: 290, sY: 30 }, //3rd bird
-        { sX: 290, sY: 30 } //3rd bird
+        { sX: 30, sY: 30 }, //1st hero
+        { sX: 30, sY: 30 }, //1st 
+        { sX: 30, sY: 30 }, //1st 
+        { sX: 30, sY: 30 }, //1st 
+        { sX: 30, sY: 30 }, //1st 
+        { sX: 30, sY: 30 }, //1st 
+        { sX: 30, sY: 30 }, //1st 
+        { sX: 30, sY: 30 }, //1st 
+        { sX: 30, sY: 30 }, //1st 
+        { sX: 30, sY: 30 }, //1st 
+        { sX: 30, sY: 30 }, //1st 
+        { sX: 30, sY: 30 }, //1st 
+        { sX: 160, sY: 30 }, // 2n
+        { sX: 160, sY: 30 }, // 2n
+        { sX: 160, sY: 30 }, // 2n
+        { sX: 160, sY: 30 }, // 2n
+        { sX: 160, sY: 30 }, // 2n
+        { sX: 160, sY: 30 }, // 2n
+        { sX: 160, sY: 30 }, // 2n
+        { sX: 160, sY: 30 }, // 2n
+        { sX: 290, sY: 30 }, //3rd
+        { sX: 290, sY: 30 }, //3rd
+        { sX: 290, sY: 30 }, //3rd
+        { sX: 290, sY: 30 }, //3rd
+        { sX: 290, sY: 30 }, //3rd
+        { sX: 290, sY: 30 }, //3rd
+        { sX: 290, sY: 30 }, //3rd
+        { sX: 290, sY: 30 } //3rd 
     ];
 
 
@@ -63,14 +64,14 @@ function Hero(game,map) {
         this.frame = ++this.frame % this.animation.length;
     }
 
-    this.draw = (ctx) => {
-
+    this.draw = function(ctx,spriteimg){
+        this.spriteimg=spriteimg;
         this.update();
         let hero = this.animation[this.frame];
         ctx.save();
         // ctx.translate(this.x, this.y);
         // ctx.rotate(this.rotation);
-        ctx.drawImage(this.sprite_hero_1, hero.sX, hero.sY, this.width, this.height, this.x, this.y, 50, 100);
+        ctx.drawImage(this.spriteimg, hero.sX, hero.sY, this.width, this.height, this.x, this.y, 50, 100);
 
         ctx.restore();
     }
@@ -92,11 +93,7 @@ function Hero(game,map) {
             // this.x_old =  this.x + this.speed;
             this.x = 100;
         }
-        // else if (this.x >= 750 ) {
-        //     // this.x_old = this.x + this.speed;
-        //     this.x = 750;
-        // }
-
+     
          else if (this.x_old >= 600 && that.x_old<2300) {
             // this.x_old = this.x + this.speed;
             this.x = 600;
@@ -105,13 +102,6 @@ function Hero(game,map) {
             this.x = this.x + this.speed;
         }
     
-
-
-        // // else if(){}
-        // else if (this.x < 0) {
-        //     // this.x_old =  this.x + this.speed;
-        //     this.x = 0;
-        // }
         else{
             this.x_old = this.x + this.speed;
             this.x = this.x + this.speed;
