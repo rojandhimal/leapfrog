@@ -345,6 +345,7 @@ function Game(canvas, ctx) {
                 that.currentAnimation = that.goRightSprite;
 
                 that.hero.moveLR(x);
+                // that.bot.x=that.bot.x-x;
                 // ctx.translate(-10, 20);
                 // that.hero.movestate = 2;
                 that.checkCollision();
