@@ -20,6 +20,8 @@ function weapon(ctx, hero) {
     // }
         
     }
+
+
     this.update = function () {
         
         this.x = this.x + this.bulletSpeed * 1;

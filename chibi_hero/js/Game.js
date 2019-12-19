@@ -33,6 +33,9 @@ function Game(canvas, ctx) {
     this.overScreen = new Image();
     this.overScreen.src = 'images/game_over_screen_sheet0.png';
 
+    this.winScreenSprite=new Image();
+    this.winScreenSprite.src='images/winscreen_sheet0.png';
+
     this.startBtn = new Image();
     this.startBtn.src = 'images/btn_yes_sheet0.png';
 
@@ -42,6 +45,13 @@ function Game(canvas, ctx) {
     this.noBtn = new Image();
     this.noBtn.src = 'images/btnno_sheet0.png';
 
+    this.priofileSprite = new Image();
+    this.priofileSprite.src = 'images/lifeiconchar_sheet0.png';
+
+
+    // LOAD SOUNDS
+    const coin_audio = new Audio();
+    coin_audio.src = "audio/coin1.mp3";
 
 
 
@@ -69,7 +79,8 @@ function Game(canvas, ctx) {
         current: 0,
         getReady: 0,
         game: 1,
-        over: 2
+        over: 2,
+        win: 2
     };
 
 
@@ -81,8 +92,8 @@ function Game(canvas, ctx) {
             ctx.drawImage(this.initialScreen, 0, 0, 1280, 720, 0, 0, 1280, 720);
             ctx.font = "40px Georgia";
             ctx.fillText("Start Game", 520, 500);
-           ctx.fillStyle='#296d98';
-           canvas1.style.cursor='pointer';
+            ctx.fillStyle = '#296d98';
+            canvas1.style.cursor = 'pointer';
 
         }
         canvas1.addEventListener('click', (e) => {
@@ -91,56 +102,112 @@ function Game(canvas, ctx) {
                 y: e.clientY - canvas.offsetTop
             };
             // console.log("clicked");
-            console.log('x',mousePos.x,'y',mousePos.y);
-            
-    
-            if (mousePos.x >=525 && mousePos.x<720 && mousePos.y>=470 && mousePos.y<500) {
-                console.log("Start btn clicked");
-                console.log('x',mousePos.x,'y',mousePos.y);
-                state.current=state.game;
-              
-             }
-    
+            console.log('x', mousePos.x, 'y', mousePos.y);
+
+
+            if (mousePos.x >= 525 && mousePos.x < 720 && mousePos.y >= 470 && mousePos.y < 500) {
+                // console.log("Start btn clicked");
+                // console.log('x',mousePos.x,'y',mousePos.y);
+                state.current = state.game;
+
+            }
+
         });
     }
 
-   
+    
+
+
+
+    this.drawScore = function () {
+        ctx.drawImage(this.priofileSprite, 0, 0, 100, 100, 10, 10, 100, 100);
+        ctx.font = "40px Georgia";
+        ctx.fillText("Score :" + score, 130, 50);
+        // ctx.fillText("Score :" + bestScore, 130, 40);
+        ctx.fillStyle = 'Red';
+
+
+    }
 
 
 
 
     // GAME OVER MESSAGE
-    this.drawOverScreen = function() {
+    this.drawOverScreen = function () {
         if (state.current == state.over) {
             ctx.drawImage(that.overScreen, 0, 0, 808, 555, 200, 100, 808, 555);
             ctx.drawImage(this.yesBtn, 0, 0, 128, 128, 440, 350, 128, 128);
             ctx.drawImage(this.noBtn, 0, 0, 128, 128, 640, 350, 128, 128);
-            canvas1.style.cursor='pointer';
-           
+            canvas1.style.cursor = 'pointer';
+
             canvas1.addEventListener('click', (e) => {
                 const mousePos = {
                     x: e.clientX - canvas.offsetLeft,
                     y: e.clientY - canvas.offsetTop
                 };
                 // console.log("clicked");
-                console.log('x',mousePos.x,'y',mousePos.y);
-                
-        
-                if (mousePos.x >=440 && mousePos.x<570 && mousePos.y>=350 && mousePos.y<480) {
-                    console.log("yes btn clicked");
-                    console.log('x',mousePos.x,'y',mousePos.y);
-                    state.current=state.game;
-                  
-                 }
+                // console.log('x', mousePos.x, 'y', mousePos.y);
 
-                 if (mousePos.x >=640 && mousePos.x<770 && mousePos.y>=350 && mousePos.y<480) {
+
+                if (mousePos.x >= 440 && mousePos.x < 570 && mousePos.y >= 350 && mousePos.y < 480) {
+                    console.log("yes btn clicked");
+                    console.log('x', mousePos.x, 'y', mousePos.y);
+                    state.current = state.game;
+                    console.log(state.current);
+
+
+                }
+
+                if (mousePos.x >= 640 && mousePos.x < 770 && mousePos.y >= 350 && mousePos.y < 480) {
                     console.log("no btn clicked");
-                    console.log('x',mousePos.x,'y',mousePos.y);
-                    state.current=state.getReady;
-                    
-                  
-                 }
-        
+                    console.log('x', mousePos.x, 'y', mousePos.y);
+                    state.current = state.getReady;
+                    console.log(state.current);
+
+
+                }
+
+            });
+
+        }
+    }
+
+
+     // win MESSAGE
+     this.winScreen = function () {
+        if (state.current == state.win) {
+            ctx.drawImage(this.winScreenSprite, 0, 0, 808, 555, 200, 100, 808, 555);
+            ctx.drawImage(this.yesBtn, 0, 0, 128, 128, 440, 350, 128, 128);
+            ctx.drawImage(this.noBtn, 0, 0, 128, 128, 640, 350, 128, 128);
+            canvas1.style.cursor = 'pointer';
+
+            canvas1.addEventListener('click', (e) => {
+                const mousePos = {
+                    x: e.clientX - canvas.offsetLeft,
+                    y: e.clientY - canvas.offsetTop
+                };
+                // console.log("clicked");
+                // console.log('x', mousePos.x, 'y', mousePos.y);
+
+
+                if (mousePos.x >= 440 && mousePos.x < 570 && mousePos.y >= 350 && mousePos.y < 480) {
+                    console.log("yes btn clicked");
+                    console.log('x', mousePos.x, 'y', mousePos.y);
+                    state.current = state.game;
+                    console.log(state.current);
+
+
+                }
+
+                if (mousePos.x >= 640 && mousePos.x < 770 && mousePos.y >= 350 && mousePos.y < 480) {
+                    console.log("no btn clicked");
+                    console.log('x', mousePos.x, 'y', mousePos.y);
+                    state.current = state.getReady;
+                    console.log(state.current);
+
+
+                }
+
             });
 
         }
@@ -149,7 +216,7 @@ function Game(canvas, ctx) {
 
 
     var score = 0;
-    var best = score;
+    var bestScore = score;
 
     // this.baseGround = new BaseGround(canvas.height);
 
@@ -188,15 +255,21 @@ function Game(canvas, ctx) {
         this.hero.draw(ctx, this.currentAnimation);
         this.bot.draw(ctx);
 
-        this.createBullet(this.fireMode);
-        // this.weapon.draw(this.fireMode);
+        this.drawScore();
 
+        // this.createBullet(this.fireMode);
+        if (this.fireMode == 1) {
+            this.weapon.draw(this.fireMode);
+            // console.log("fire mode");
+        }
+
+      
 
 
 
         // if (state.current == state.getReady) {
         //     this.drawInitialScreen();
-            
+
         // }
 
         // //game over message
@@ -220,9 +293,9 @@ function Game(canvas, ctx) {
         // }
 
 
-          if (state.current == state.getReady) {
+        if (state.current == state.getReady) {
             this.drawInitialScreen();
-            
+
         }
 
         //game over message
@@ -232,11 +305,18 @@ function Game(canvas, ctx) {
             //     canvas.width / 2 - 225 / 2, 150, 225, 200);
         }
 
-        console.log("state",state.current);
-        
+        if(state.current==state.win){
+            this.winScreen();
+        }
+
+        // console.log("state",state.current);
+
 
         //falling hero
-        this.checkDownTile();
+        if (this.hero.y > 50) {
+            this.checkDownTile();
+        }
+
         // this.updateBullet();
 
     }
@@ -278,30 +358,52 @@ function Game(canvas, ctx) {
         // console.log(x);
 
         if (this.map.map1[i][j] == 1 || this.map.map1[i][j] == 2) {
-            
+
             console.log('collision detected at i', i, 'j', j);
 
         }
+        if (this.map.map1[i][j] == 4) {
+            this.map.map1[i][j] = 0;
+            // coin_audio.play();
+            this.playAudio(coin_audio);
+            if (this.map.map1[i - 1][j] == 4) {
+                score = score + 100;
+                // coin_audio.play();
 
+                this.map.map1[i - 1][j] = 0;
+            }
+
+            score = score + 100;
+            // coin_audio.play();
+            console.log("score", score);
+
+        }
+
+    }
+
+    this.playAudio=function(audioName){
+        this.audioName=audioName;
+        this.audioName.play();
     }
 
 
     this.checkDownTile = function () {
         let i = Math.floor((this.hero.y + 100) / 50); //one step down than current y
         let j = Math.floor((this.hero.x_old / 50)); //current y position
-        if (this.map.map1[i][j] == 1) {
-            // this.state.current=this.state.over; 
-            this.hold = 0;   //hold flag true means hold flag set to hold the player in the tile  
-            // console.log('collision detected at i', i, 'j', j);
+        if (i < 13 && j < 60) {
+            if (this.map.map1[i][j] == 1) {
+                // this.state.current=this.state.over; 
+                this.hold = 0;   //hold flag true means hold flag set to hold the player in the tile  
+                // console.log('collision detected at i', i, 'j', j);
 
-
-        }
-        else {
-            this.hero.y = this.hero.y + this.gravity * 1;
-            if (this.hero.y > 500) {
-                state.current = state.over;
             }
+            else {
+                this.hero.y = this.hero.y + this.gravity * 1;
+                if (this.hero.y > 500) {
+                    state.current = state.over;
+                }
 
+            }
         }
 
     }
@@ -388,9 +490,13 @@ function Game(canvas, ctx) {
             }
 
             else if (key == 88) {
-                this.fireMode = 1;
+                this.setTimeout(
+                    this.fireMode = 1, 500);
                 console.log("fire");
                 that.createBullet(this.fireMode);
+                this.fireMode = 0;
+                console.log('firemode =>', this.fireMode);
+
 
 
 
@@ -418,8 +524,8 @@ function Game(canvas, ctx) {
         else if (key == 38) {
             console.log("up");
             y = -50;
-
-            this.setTimeout(that.hero.moveUD(y), 3000);
+            that.hero.moveUD(y);
+            // this.setTimeout(that.hero.moveUD(y), 3);
             // this.setTimeout(that.hero.moveUD(y),3000);
             // this.setTimeout(that.hero.moveUD(y),3000);
             //this is for updating map

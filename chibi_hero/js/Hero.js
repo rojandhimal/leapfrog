@@ -3,6 +3,7 @@ function Hero(game,map) {
     console.log('hi hero is initialized');
     this.map=map;
     
+    // console.log("game obj",this.game.state.current);
     
     this.sX = 30;
     this.sY = 30;
@@ -118,8 +119,9 @@ function Hero(game,map) {
 
         this.speed = speed;
         console.log(this.y);
-
-        this.y = this.y + this.speed;
+        // setInterval(this.y = this.y + this.speed/10,3000);
+        if(this.y>=100){this.y = this.y + this.speed;}
+        
     }
 
 
