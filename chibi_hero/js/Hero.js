@@ -17,6 +17,7 @@ function Hero(game,map) {
     this.sprite_hero_1.src = 'images/chibihero01_idle.png'
 
     this.speed = 0;
+    this.fallSpeed=0;
     this.gravity = 0.25;
     this.jump = 4;
 
@@ -27,20 +28,20 @@ function Hero(game,map) {
     var that = this;
     console.log("map from hero",this.map.gameMapHeight);
 
-    // birds animation
+    // hero animation
     this.animation = [
-        { sX: 30, sY: 30 }, //1st hero
-        { sX: 30, sY: 30 }, //1st 
-        { sX: 30, sY: 30 }, //1st 
-        { sX: 30, sY: 30 }, //1st 
-        { sX: 30, sY: 30 }, //1st 
-        { sX: 30, sY: 30 }, //1st 
-        { sX: 30, sY: 30 }, //1st 
-        { sX: 30, sY: 30 }, //1st 
-        { sX: 30, sY: 30 }, //1st 
-        { sX: 30, sY: 30 }, //1st 
-        { sX: 30, sY: 30 }, //1st 
-        { sX: 30, sY: 30 }, //1st 
+        { sX: 30, sY: 30}, //1st hero
+        { sX: 30, sY: 30}, //1st 
+        { sX: 30, sY: 30}, //1st 
+        { sX: 30, sY: 30}, //1st 
+        { sX: 30, sY: 30}, //1st 
+        { sX: 30, sY: 30}, //1st 
+        { sX: 30, sY: 30}, //1st 
+        { sX: 30, sY: 30}, //1st 
+        { sX: 30, sY: 30}, //1st 
+        { sX: 30, sY: 30}, //1st 
+        { sX: 30, sY: 30}, //1st 
+        { sX: 30, sY: 30}, //1st 
         { sX: 160, sY: 30 }, // 2n
         { sX: 160, sY: 30 }, // 2n
         { sX: 160, sY: 30 }, // 2n
@@ -57,7 +58,7 @@ function Hero(game,map) {
         { sX: 290, sY: 30 }, //3rd
         { sX: 290, sY: 30 }, //3rd
         { sX: 290, sY: 30 } //3rd 
-    ];
+    ];30
 
 
     this.update = function () {
@@ -115,7 +116,7 @@ function Hero(game,map) {
     this.moveUD = function (speed) {
         console.log('Moved');
 
-        this.speed = speed
+        this.speed = speed;
         console.log(this.y);
 
         this.y = this.y + this.speed;

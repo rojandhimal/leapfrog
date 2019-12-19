@@ -8,8 +8,8 @@ function Bot(game, map) {
     this.sY = 30;
     this.width = 70;
     this.height = 100;
-    this.x = 50;
-    this.y = 353;   //7th row from top 
+    this.x = 300;
+    this.y = 70;   //7th row from top 
     this.x_old = 50;
     this.y_old = 353;
     this.frame = 0; //for animation
@@ -58,7 +58,7 @@ function Bot(game, map) {
         { sX: 290, sY: 30, Y: 40 }, //3rd
         { sX: 290, sY: 30, Y: 39 } //3rd 
     ];
-
+    
 
     this.update = function () {
         this.frame = ++this.frame % this.animation.length;
@@ -72,7 +72,7 @@ function Bot(game, map) {
         ctx.save();
         // ctx.translate(this.x, this.y);
         // ctx.rotate(this.rotation);
-        ctx.drawImage(this.sprite_enemy_1, bot.sX, bot.sY, this.width, this.height, this.x, bot.Y, 50, 100);
+        ctx.drawImage(this.sprite_enemy_1, bot.sX, bot.sY, this.width, this.height, this.x, this.y + bot.Y, 50, 100);
 
         ctx.restore();
     }

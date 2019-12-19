@@ -23,11 +23,30 @@ function Game(canvas, ctx) {
 
     this.sprite_enemy_1 = new Image();
     this.sprite_enemy_1.src = 'images/enemy01_sheet0.png';
-    // this.surikenSprite = new Image();
-    // this.surikenSprite.src = 'images/shuriken_item_sheet0.png';
+    this.surikenSprite = new Image();
+    this.surikenSprite.src = 'images/shuriken_item_sheet0.png';
+
+    this.initialScreen = new Image();
+    this.initialScreen.src = 'images/initialscreen_sheet0.png';
 
 
-    this.currentAnimation=this.sprite_hero_1;
+    this.overScreen = new Image();
+    this.overScreen.src = 'images/game_over_screen_sheet0.png';
+
+    this.startBtn = new Image();
+    this.startBtn.src = 'images/btn_yes_sheet0.png';
+
+    this.yesBtn = new Image();
+    this.yesBtn.src = 'images/btn_yes_newgame_sheet0.png';
+
+    this.noBtn = new Image();
+    this.noBtn.src = 'images/btnno_sheet0.png';
+
+
+
+
+
+    this.currentAnimation = this.sprite_hero_1;
     this.checkCollision;
     //background image setup
     this.sX = 0;
@@ -40,10 +59,10 @@ function Game(canvas, ctx) {
     this.setviewportX = 0;
     this.setviewportY = 0;
 
-   
+
 
     this.gravity = 3;
-    this.hold=1;        //hold has two value true orfalse if true hero is hold in tile else fall
+    this.hold = 1;        //hold has two value true orfalse if true hero is hold in tile else fall
 
     //GAME STATE
     var state = {
@@ -54,7 +73,79 @@ function Game(canvas, ctx) {
     };
 
 
- 
+
+    // GET READY MESSAGE
+
+    this.drawInitialScreen = function () {
+        if (state.current == state.getReady) {
+            ctx.drawImage(this.initialScreen, 0, 0, 1280, 720, 0, 0, 1280, 720);
+            ctx.font = "40px Georgia";
+            ctx.fillText("Start Game", 520, 500);
+           ctx.fillStyle='#296d98';
+           canvas1.style.cursor='pointer';
+
+        }
+        canvas1.addEventListener('click', (e) => {
+            const mousePos = {
+                x: e.clientX - canvas.offsetLeft,
+                y: e.clientY - canvas.offsetTop
+            };
+            // console.log("clicked");
+            console.log('x',mousePos.x,'y',mousePos.y);
+            
+    
+            if (mousePos.x >=525 && mousePos.x<720 && mousePos.y>=470 && mousePos.y<500) {
+                console.log("Start btn clicked");
+                console.log('x',mousePos.x,'y',mousePos.y);
+                state.current=state.game;
+              
+             }
+    
+        });
+    }
+
+   
+
+
+
+
+    // GAME OVER MESSAGE
+    this.drawOverScreen = function() {
+        if (state.current == state.over) {
+            ctx.drawImage(that.overScreen, 0, 0, 808, 555, 200, 100, 808, 555);
+            ctx.drawImage(this.yesBtn, 0, 0, 128, 128, 440, 350, 128, 128);
+            ctx.drawImage(this.noBtn, 0, 0, 128, 128, 640, 350, 128, 128);
+            canvas1.style.cursor='pointer';
+           
+            canvas1.addEventListener('click', (e) => {
+                const mousePos = {
+                    x: e.clientX - canvas.offsetLeft,
+                    y: e.clientY - canvas.offsetTop
+                };
+                // console.log("clicked");
+                console.log('x',mousePos.x,'y',mousePos.y);
+                
+        
+                if (mousePos.x >=440 && mousePos.x<570 && mousePos.y>=350 && mousePos.y<480) {
+                    console.log("yes btn clicked");
+                    console.log('x',mousePos.x,'y',mousePos.y);
+                    state.current=state.game;
+                  
+                 }
+
+                 if (mousePos.x >=640 && mousePos.x<770 && mousePos.y>=350 && mousePos.y<480) {
+                    console.log("no btn clicked");
+                    console.log('x',mousePos.x,'y',mousePos.y);
+                    state.current=state.getReady;
+                    
+                  
+                 }
+        
+            });
+
+        }
+    }
+
 
 
     var score = 0;
@@ -66,6 +157,9 @@ function Game(canvas, ctx) {
     this.hero = new Hero(game1, this.map);
     this.bot = new Bot(game1, this.map);
     this.map.init();
+
+    this.fireMode = 0;
+    this.weapon = new weapon(ctx, this.hero);
 
     this.gameLoop = function () {
         ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
@@ -91,23 +185,26 @@ function Game(canvas, ctx) {
 
         ;
         this.map.drawMap(ctx);
-        this.hero.draw(ctx,this.currentAnimation);
+        this.hero.draw(ctx, this.currentAnimation);
         this.bot.draw(ctx);
 
+        this.createBullet(this.fireMode);
+        // this.weapon.draw(this.fireMode);
 
 
 
-        if (state.current == state.getReady) {
-            // ctx.drawImage(sprite, 0, 229, 173, 45,
-            //     canvas.width / 2 - 173 / 2, 130, 173, 45);
-            // ctx.strokeText("Tap to play", 100, 200);
-        }
 
-        //game over message
-        if (state.current == state.over) {
-            // ctx.drawImage(sprite, 175, 229, 225, 200,
-            //     canvas.width / 2 - 225 / 2, 150, 225, 200);
-        }
+        // if (state.current == state.getReady) {
+        //     this.drawInitialScreen();
+            
+        // }
+
+        // //game over message
+        // if (state.current == state.over) {
+        //     this.drawOverScreen();
+        //     // ctx.drawImage(sprite, 175, 229, 225, 200,
+        //     //     canvas.width / 2 - 225 / 2, 150, 225, 200);
+        // }
         // that.renderCurrentScore(ctx);
 
     }
@@ -123,12 +220,52 @@ function Game(canvas, ctx) {
         // }
 
 
+          if (state.current == state.getReady) {
+            this.drawInitialScreen();
+            
+        }
+
+        //game over message
+        if (state.current == state.over) {
+            this.drawOverScreen();
+            // ctx.drawImage(sprite, 175, 229, 225, 200,
+            //     canvas.width / 2 - 225 / 2, 150, 225, 200);
+        }
+
+        console.log("state",state.current);
+        
+
         //falling hero
         this.checkDownTile();
-       
+        // this.updateBullet();
+
     }
     var x = this.hero.x;
     // console.log('fromgame hero x',x);
+
+    this.bulletx = this.hero.x;
+    this.bullety = this.hero.y;
+
+
+    this.createBullet = function (fireMode) {
+        this.fireMode = fireMode;
+        // this.updateBullet();
+        if (this.fireMode == 1) {
+            console.log("bullet hit");
+
+            ctx.drawImage(this.surikenSprite, 100, 100, 34, 34, this.bulletx, this.bullety + 50, 20, 20);
+        }
+
+
+    }
+    this.updateBullet = function () {
+
+        this.bulletx = this.bulletx + this.bulletSpeed * 1;
+        this.bulletSpeed++;
+
+    }
+
+    // setInterval(this.updateBullet(),30);
 
     this.checkCollision = function () {
 
@@ -141,9 +278,8 @@ function Game(canvas, ctx) {
         // console.log(x);
 
         if (this.map.map1[i][j] == 1 || this.map.map1[i][j] == 2) {
-            // this.state.current=this.state.over;
+            
             console.log('collision detected at i', i, 'j', j);
-
 
         }
 
@@ -153,19 +289,19 @@ function Game(canvas, ctx) {
     this.checkDownTile = function () {
         let i = Math.floor((this.hero.y + 100) / 50); //one step down than current y
         let j = Math.floor((this.hero.x_old / 50)); //current y position
-        if (this.map.map1[i][j] == 1 || this.map.map1[i][j] == 2) {
+        if (this.map.map1[i][j] == 1) {
             // this.state.current=this.state.over; 
-            this.hold=0;   //hold flag true means hold flag set to hold the player in the tile  
+            this.hold = 0;   //hold flag true means hold flag set to hold the player in the tile  
             // console.log('collision detected at i', i, 'j', j);
 
 
         }
-        else{
-            this.hero.y = this.hero.y + this.gravity;
-            if(this.hero.y>550){
-                state.current=state.over;
+        else {
+            this.hero.y = this.hero.y + this.gravity * 1;
+            if (this.hero.y > 500) {
+                state.current = state.over;
             }
-            
+
         }
 
     }
@@ -183,7 +319,7 @@ function Game(canvas, ctx) {
                 console.log("left");
 
                 x = -50;
-                this.currentAnimation=this.goLeftSprite;
+                this.currentAnimation = that.goLeftSprite;
                 that.hero.moveLR(x);
 
 
@@ -206,8 +342,8 @@ function Game(canvas, ctx) {
             } else if (key == 39) {
                 console.log("right");
                 x = 50;
-                that.currentAnimation=that.goRightSprite;
-               
+                that.currentAnimation = that.goRightSprite;
+
                 that.hero.moveLR(x);
                 // ctx.translate(-10, 20);
                 // that.hero.movestate = 2;
@@ -222,15 +358,15 @@ function Game(canvas, ctx) {
 
                     that.map.updateViewPortX(that.setviewportX);
                 }
-                
+
 
             }
 
-            else if (key == 38) {
+            else if (key == 38 || key == 32) {
                 console.log("up");
                 y = -50;
 
-                this.setTimeout(that.hero.moveUD(y),3000);
+                this.setTimeout(that.hero.moveUD(y), 3000);
                 // this.setTimeout(that.hero.moveUD(y),3000);
                 // this.setTimeout(that.hero.moveUD(y),3000);
                 //this is for updating map
@@ -251,10 +387,12 @@ function Game(canvas, ctx) {
             }
 
             else if (key == 88) {
+                this.fireMode = 1;
                 console.log("fire");
-                
+                that.createBullet(this.fireMode);
 
-               
+
+
 
             }
         };
@@ -265,14 +403,14 @@ function Game(canvas, ctx) {
         if (key == 37) {
             console.log(" key up left");
 
-   
+
 
         } else if (key == 39) {
             console.log("right");
             x = 50;
-            that.currentAnimation=that.sprite_hero_1;
-           
-            
+            that.currentAnimation = that.sprite_hero_1;
+
+
 
         }
 
@@ -280,7 +418,7 @@ function Game(canvas, ctx) {
             console.log("up");
             y = -50;
 
-            this.setTimeout(that.hero.moveUD(y),3000);
+            this.setTimeout(that.hero.moveUD(y), 3000);
             // this.setTimeout(that.hero.moveUD(y),3000);
             // this.setTimeout(that.hero.moveUD(y),3000);
             //this is for updating map
@@ -302,9 +440,9 @@ function Game(canvas, ctx) {
 
         else if (key == 88) {
             console.log("fire");
-            
 
-           
+
+
 
         }
     };
@@ -316,7 +454,9 @@ function Game(canvas, ctx) {
 var canvas1 = document.getElementById('gameCanvas');
 // canvas1.style.backgroundImage="red";
 var ctx1 = canvas1.getContext('2d');
+var ctx = canvas1.getContext('2d');
 var game1 = new Game(canvas1, ctx1).gameLoop();
+
 
 // var canvas2 = document.getElementById('game-container2');
 // var ctx2 = canvas2.getContext('2d');
