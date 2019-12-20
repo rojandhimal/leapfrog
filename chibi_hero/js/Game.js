@@ -234,7 +234,7 @@ function Game(canvas, ctx) {
             // console.log("fire mode");
         }
 
-        if(this.hero.x_old>260){
+        if(this.hero.x_old>2600){
             state.current=state.win;
             // console.log("win screen");
             
