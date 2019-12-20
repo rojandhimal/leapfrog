@@ -51,7 +51,7 @@ function Game(canvas, ctx) {
 
     // LOAD SOUNDS
     const coin_audio = new Audio();
-    coin_audio.src = "audio/coin1.mp3";
+    coin_audio.src = "audio/coin.mp3";
 
 
 
@@ -177,38 +177,9 @@ function Game(canvas, ctx) {
      this.winScreen = function () {
         if (state.current == state.win) {
             ctx.drawImage(this.winScreenSprite, 0, 0, 808, 555, 200, 100, 808, 555);
-            ctx.drawImage(this.yesBtn, 0, 0, 128, 128, 440, 350, 128, 128);
-            ctx.drawImage(this.noBtn, 0, 0, 128, 128, 640, 350, 128, 128);
-            canvas1.style.cursor = 'pointer';
-
-            canvas1.addEventListener('click', (e) => {
-                const mousePos = {
-                    x: e.clientX - canvas.offsetLeft,
-                    y: e.clientY - canvas.offsetTop
-                };
-                // console.log("clicked");
-                // console.log('x', mousePos.x, 'y', mousePos.y);
-
-
-                if (mousePos.x >= 440 && mousePos.x < 570 && mousePos.y >= 350 && mousePos.y < 480) {
-                    console.log("yes btn clicked");
-                    console.log('x', mousePos.x, 'y', mousePos.y);
-                    state.current = state.game;
-                    console.log(state.current);
-
-
-                }
-
-                if (mousePos.x >= 640 && mousePos.x < 770 && mousePos.y >= 350 && mousePos.y < 480) {
-                    console.log("no btn clicked");
-                    console.log('x', mousePos.x, 'y', mousePos.y);
-                    state.current = state.getReady;
-                    console.log(state.current);
-
-
-                }
-
-            });
+            ctx.font = "80px Georgia";
+            ctx.fillText(score,700,450)
+           
 
         }
     }
@@ -263,22 +234,16 @@ function Game(canvas, ctx) {
             // console.log("fire mode");
         }
 
+        if(this.hero.x_old>260){
+            state.current=state.win;
+            // console.log("win screen");
+            
+        }
+
       
 
 
 
-        // if (state.current == state.getReady) {
-        //     this.drawInitialScreen();
-
-        // }
-
-        // //game over message
-        // if (state.current == state.over) {
-        //     this.drawOverScreen();
-        //     // ctx.drawImage(sprite, 175, 229, 225, 200,
-        //     //     canvas.width / 2 - 225 / 2, 150, 225, 200);
-        // }
-        // that.renderCurrentScore(ctx);
 
     }
 
@@ -368,7 +333,7 @@ function Game(canvas, ctx) {
             this.playAudio(coin_audio);
             if (this.map.map1[i - 1][j] == 4) {
                 score = score + 100;
-                // coin_audio.play();
+                coin_audio.play();
 
                 this.map.map1[i - 1][j] = 0;
             }
