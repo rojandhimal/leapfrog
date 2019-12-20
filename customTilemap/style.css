@@ -1,0 +1,58 @@
+.tile{
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    /* background-image: url('arrow1_sheet0.png'); */
+    display: inline-block;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.tiles{
+    position: fixed;
+}
+
+#tile1{
+    background-image: url('images/1.png');
+}
+
+#tile1:hover{
+   border: 1px solid red;
+}
+#tile2{
+    background-image: url('images/2.png');
+}
+
+#tile2:hover{
+    border: 1px solid red;
+ }
+
+#tile3{
+    background-image: url('images/3.png');
+}
+#tile3:hover{
+    border: 1px solid red;
+ }
+
+#tile4{
+    background-image: url('images/4.png');
+}
+
+#tile4:hover{
+    border: 1px solid red;
+ }
+
+a{
+    height: 50px;
+    width: 50px;
+}
+
+
+
+.tilemap{
+    overflow: visible;
+    width: 3120px;
+    height: 650px;
+    padding-top: 100px;
+    /* background-color: brown; */
+}
